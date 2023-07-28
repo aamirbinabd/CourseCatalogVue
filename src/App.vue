@@ -129,127 +129,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, watch, watchEffect } from 'vue'
+import { ref, onMounted, computed, watchEffect } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Fuse from 'fuse.js'
+import courses from './courses.js'
 
-const courses = [
-  {
-    domain: 'Networking',
-    courses: [
-      {
-        type: 'Unified Course',
-        title: 'CCNA + CCNP Security',
-        duration: '7 Months, On Campus',
-        includedCourses: ['CCNA', 'CCNP'],
-        description: 'Make your career in Networking with CCNA and CCNP Security.',
-        popularity: 2
-      },
-      {
-        type: 'Essential Course',
-        title: 'Network Fundamentals',
-        duration: '3 Months, Online',
-        includedCourses: ['Basic Networking Concepts', 'Network Protocols'],
-        description: 'This course will help you to understand the basics of Networking.',
-        popularity: 3
-      },
-      {
-        type: 'Master Course',
-        title: 'Network Design and Architecture',
-        duration: '9 Months, On Campus',
-        includedCourses: ['Network Infrastructure Planning', 'Network Security Design'],
-        description:
-          'From the basics to the advanced, this course covers it all. You will learn everything about Network Design and Architecture.',
-        popularity: 5
-      }
-    ]
-  },
-  {
-    domain: 'Cybersecurity',
-    courses: [
-      {
-        type: 'Essential Course',
-        title: 'Cybersecurity Fundamentals',
-        duration: '4 Months, Online',
-        includedCourses: ['Introduction to Cyber Threats', 'Security Policies and Procedures'],
-        description:
-          'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus odio a sapien feugiat, sed convallis dui consectetur.',
-        popularity: 4
-      },
-      {
-        type: 'Master Course',
-        title: 'Ethical Hacking and Penetration Testing',
-        duration: '8 Months, On Campus',
-        includedCourses: ['Web Application Security', 'Wireless Network Security'],
-        description: 'Maecenas luctus mauris non nunc auctor ullamcorper.',
-        popularity: 5
-      },
-      {
-        type: 'Specialist Course',
-        title: 'Digital Forensics and Incident Response',
-        duration: '6 Months, Online',
-        includedCourses: ['Forensic Investigation Techniques', 'Malware Analysis'],
-        description: 'Aenean dictum gravida est, vel egestas turpis tristique sit amet.',
-        popularity: 3
-      }
-    ]
-  },
-  {
-    domain: 'Data Science',
-    courses: [
-      {
-        type: 'Essential Course',
-        title: 'Introduction to Data Science',
-        duration: '4 Months, Online',
-        includedCourses: ['Data Analysis Methods', 'Data Visualization'],
-        description: 'Nullam viverra odio et nisi rhoncus consequat.'
-      },
-      {
-        type: 'Master Course',
-        title: 'Big Data Analytics',
-        duration: '9 Months, On Campus',
-        includedCourses: ['Hadoop and MapReduce', 'Machine Learning with Big Data'],
-        description: 'Donec dapibus urna a gravida efficitur.'
-      },
-      {
-        type: 'Specialist Course',
-        title: 'Natural Language Processing',
-        duration: '6 Months, Online',
-        includedCourses: ['Text Preprocessing Techniques', 'Sentiment Analysis'],
-        description:
-          'Integer fermentum, urna in consectetur varius, ligula nisl gravida magna, non laoreet massa ligula ac velit.'
-      }
-    ]
-  },
-  {
-    domain: 'Web Development',
-    courses: [
-      {
-        type: 'Unified Course',
-        title: 'Full Stack Web Development',
-        duration: '12 Months, On Campus',
-        includedCourses: ['Front-End Development', 'Back-End Development'],
-        description: 'Fusce Techboxx Man.'
-      },
-      {
-        type: 'Essential Course',
-        title: 'Front-End Development',
-        duration: '6 Months, Online',
-        includedCourses: ['HTML', 'CSS', 'JavaScript'],
-        description: 'This course will help you to understand the basics of Front-End Development.'
-      },
-      {
-        type: 'Master Course',
-        title: 'Back-End Development',
-        duration: '6 Months, On Campus',
-        includedCourses: ['Node.js', 'Express.js', 'MongoDB'],
-        description: 'This course will help you to understand the basics of Back-End Development.'
-      }
-    ]
-  }
-]
-
-// Setup the necessary states.
+// State
 const domains = ref(courses)
 const currentDomain = ref(null)
 const searchTerm = ref('')
@@ -258,85 +143,67 @@ const selectedCourse = ref(null)
 const currentPage = ref(1)
 const coursesPerPage = ref(3)
 const filteredCourses = ref([])
+const fuseOptions = { keys: ['title', 'description'], includeScore: true }
 
-// Continue setup
-const fuseOptions = {
-  keys: ['title', 'description'],
-  includeScore: true
-}
-const fuse = ref(null)
-
-// Setup router to handle navigation.
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [{ path: '/:domain', component: { template: '<div></div>' } }]
-})
+// Router
+const router = setupRouter()
 
 // Methods
-const selectDomain = (domain) => {
+const selectDomain = (domain) => updateDomain(domain)
+const showCourseDetails = (course) => (selectedCourse.value = course)
+const hideCourseDetails = () => (selectedCourse.value = null)
+const searchCourses = () => updateFilteredCourses()
+const sortCourses = () => updateSortedCourses()
+const goToPage = (page) => (currentPage.value = page)
+const navigateDomains = (direction) => navigateToDomain(direction)
+const getDomainName = (index) =>
+  index >= 0 && index < domains.value.length ? domains.value[index].domain : ''
+
+// Computed Properties
+const updateTitle = computed(() =>
+  searchTerm.value !== ''
+    ? 'Search results...'
+    : currentDomain.value
+    ? currentDomain.value.domain
+    : 'Loading...'
+)
+const totalPages = computed(() => Math.ceil(filteredCourses.value.length / coursesPerPage.value))
+const paginatedCourses = computed(() => paginateCourses())
+
+// Watchers and Initialization
+watchEffect(() => setQueryParameters())
+onMounted(() => setInitialDomain())
+
+// Router setup
+function setupRouter() {
+  return createRouter({
+    history: createWebHashHistory(),
+    routes: [
+      {
+        path: '/:domain?',
+        component: { template: '<div></div>' },
+        props: (route) => ({
+          domain: route.params.domain,
+          searchTerm: route.query.searchTerm,
+          sortBy: route.query.sortBy
+        })
+      }
+    ]
+  })
+}
+
+// Domain related functions
+function updateDomain(domain) {
   currentDomain.value = domain
-  // Remove the router.push() call from here; it will be handled by the watch function.
-  searchCourses() // call searchCourses when a domain is selected
+  updateRoute({ path: `/${domain.domain}` })
 }
 
-const showCourseDetails = (course) => {
-  selectedCourse.value = course
+function defaultDomain() {
+  const defaultDomain = domains.value[0]
+  selectDomain(defaultDomain)
 }
 
-const hideCourseDetails = () => {
-  selectedCourse.value = null
-}
-
-const searchCourses = () => {
-  if (searchTerm.value === '') {
-    // if no search term is entered, show courses from the selected domain
-    filteredCourses.value = currentDomain.value.courses
-  } else {
-    // if a search term is entered, search across all courses
-    if (!fuse.value) {
-      // Initialize fuse.js instance if not done already
-      fuse.value = new Fuse(
-        domains.value.flatMap((domain) => domain.courses),
-        fuseOptions
-      )
-    }
-    filteredCourses.value = fuse.value.search(searchTerm.value).map((result) => result.item)
-  }
-}
-
-const sortCourses = () => {
-  if (currentDomain.value) {
-    const domainCourses = currentDomain.value.courses
-    switch (sortBy.value) {
-      case 'az':
-        domainCourses.sort((a, b) => a.title.localeCompare(b.title))
-        break
-      case 'za':
-        domainCourses.sort((a, b) => b.title.localeCompare(a.title))
-        break
-      case 'duration-asc':
-        domainCourses.sort((a, b) => parseInt(a.duration) - parseInt(b.duration))
-        break
-      case 'duration-desc':
-        domainCourses.sort((a, b) => parseInt(b.duration) - parseInt(a.duration))
-        break
-      case 'type':
-        domainCourses.sort((a, b) => a.type.localeCompare(b.type))
-        break
-      case 'most-popular':
-        domainCourses.sort((a, b) => b.popularity - a.popularity)
-        break
-    }
-    filteredCourses.value = [...domainCourses]
-  }
-  currentPage.value = 1
-}
-
-const goToPage = (page) => {
-  currentPage.value = page
-}
-
-const navigateDomains = (direction) => {
+function navigateToDomain(direction) {
   const currentIndex = domains.value.indexOf(currentDomain.value)
   const nextIndex = currentIndex + direction
   if (nextIndex >= 0 && nextIndex < domains.value.length) {
@@ -344,82 +211,75 @@ const navigateDomains = (direction) => {
   }
 }
 
-const getDomainName = (index) => {
-  if (index >= 0 && index < domains.value.length) {
-    return domains.value[index].domain
-  } else {
-    return ''
-  }
+// Search and Filter functions
+function updateFilteredCourses() {
+  searchTerm.value === ''
+    ? (filteredCourses.value = currentDomain.value.courses)
+    : searchAllCourses()
 }
 
-// Computed Properties
-const updateTitle = computed(() => {
-  if (searchTerm.value !== '') {
-    return 'Search results...'
-  } else {
-    return currentDomain.value ? currentDomain.value.domain : 'Loading...'
+function searchAllCourses() {
+  const fuse = new Fuse(
+    domains.value.flatMap((domain) => domain.courses),
+    fuseOptions
+  )
+  filteredCourses.value = fuse.search(searchTerm.value).map((result) => result.item)
+}
+
+function updateSortedCourses() {
+  filteredCourses.value = sortItems(filteredCourses.value, sortBy.value)
+  currentPage.value = 1
+}
+
+function sortItems(items, by) {
+  const sortingStrategies = {
+    az: (a, b) => a.title.localeCompare(b.title),
+    za: (a, b) => b.title.localeCompare(a.title),
+    'duration-asc': (a, b) => parseInt(a.duration) - parseInt(b.duration),
+    'duration-desc': (a, b) => parseInt(b.duration) - parseInt(a.duration),
+    type: (a, b) => a.type.localeCompare(b.type),
+    'most-popular': (a, b) => b.popularity - a.popularity
   }
-})
-const totalPages = computed(() => Math.ceil(filteredCourses.value.length / coursesPerPage.value))
-const paginatedCourses = computed(() => {
+  return items.sort(sortingStrategies[by])
+}
+
+// Pagination function
+function paginateCourses() {
   const start = (currentPage.value - 1) * coursesPerPage.value
   return filteredCourses.value.slice(start, start + coursesPerPage.value)
-})
+}
 
-watch(
-  () => router.currentRoute,
-  (to, from) => {
-    // Extract the domain from the URL
-    let routeDomain = to.params.domain
+// URL Parameter handling
+function setQueryParameters() {
+  const query = router.currentRoute.value.query
+  searchTerm.value = query.searchTerm || ''
+  sortBy.value = query.sortBy || 'az'
+}
 
-    // Find the matched domain based on the route domain
-    let matchedDomain = domains.value.find((domain) => domain.domain === routeDomain)
-
-    if (matchedDomain) {
-      // If a valid domain is found, select it
-      currentDomain.value = matchedDomain
-    } else {
-      // If the domain is not valid, default to the first domain and update the URL
-      currentDomain.value = domains.value[0]
-      router.push(`/${domains.value[0].domain}`)
-    }
-    // Search and sort based on the URL parameters
-    searchTerm.value = to.query.searchTerm ? to.query.searchTerm : ''
-    sortBy.value = to.query.sortBy ? to.query.sortBy : 'az'
-    searchCourses() // Update the displayed courses based on the new domain and/or search term
-    sortCourses() // Apply the sorting based on the URL parameters
-  }
-)
-
-watch(
-  () => ({ searchTerm: searchTerm.value, sortBy: sortBy.value }),
-  ({ searchTerm, sortBy }) => {
-    router.push(
-      '/' + currentDomain.value.domain + '?searchTerm=' + searchTerm + '&sortBy=' + sortBy
-    )
-  },
-  { deep: true }
-)
-
-watchEffect(() => {
-  let query = router.currentRoute.value.query
-  searchTerm.value = query.searchTerm ? query.searchTerm : ''
-  sortBy.value = query.sortBy ? query.sortBy : 'az'
-})
-
-// Initial setup.
-onMounted(() => {
-  // Select the domain based on the initial route.
+function setInitialDomain() {
   const routeDomain = router.currentRoute.value.params.domain
   const matchedDomain = domains.value.find((domain) => domain.domain === routeDomain)
 
-  if (matchedDomain) {
-    selectDomain(matchedDomain)
-  } else {
-    selectDomain(domains.value[0])
-    router.push(`/${domains.value[0].domain}`)
-  }
-})
+  matchedDomain ? selectDomain(matchedDomain) : defaultDomain()
+
+  // Set the search and sort parameters from the URL.
+  searchTerm.value = router.currentRoute.value.query.searchTerm || ''
+  sortBy.value = router.currentRoute.value.query.sortBy || 'az'
+
+  // Run search and sort after setting initial parameters.
+  searchCourses()
+  sortCourses()
+}
+
+function updateRoute({ path }) {
+  router.push({
+    path,
+    query: {
+      searchTerm: searchTerm.value,
+      sortBy: sortBy.value
+    }
+  })
+}
 </script>
 
 <style>
