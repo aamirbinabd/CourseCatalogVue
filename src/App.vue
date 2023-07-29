@@ -172,7 +172,9 @@ const router = createRouter({
         sortBy.value = params.sortBy || 'az'
         currentDomain.value = null
         selectedCourse.value = null
-        searchCourses()
+        if (searchTerm.value) {
+          searchCourses()
+        }
       }
     },
     {
@@ -191,12 +193,15 @@ const router = createRouter({
             }
           }
         }
+        const params = to.query
+        sortBy.value = params.sortBy || 'az'
+        sortCourses()
       }
     },
     {
       path: '/:catchAll(.*)',
       redirect: () => {
-        return { name: 'Search' }
+        return { name: 'Domain', params: { domain: domains.value[0].domain } }x
       }
     }
   ]
@@ -277,9 +282,14 @@ const paginatedCourses = computed(() => {
   return filteredCourses.value.slice(start, start + coursesPerPage.value)
 })
 
-// Lifecycle hooks
-onMounted(() => {
-  router.push({ path: window.location.hash.slice(1) })
+onMounted(async () => {
+  await router.push({ path: window.location.hash.slice(1) })
+
+  if (router.currentRoute.value.name === 'Search') {
+    searchCourses()
+  } else if (router.currentRoute.value.name === 'Domain') {
+    sortCourses()
+  }
 })
 
 watch([searchTerm, sortBy, selectedCourse, currentDomain], () => {
@@ -288,10 +298,15 @@ watch([searchTerm, sortBy, selectedCourse, currentDomain], () => {
   } else if (selectedCourse.value !== null) {
     router.push({
       name: 'Domain',
-      params: { domain: currentDomain.value.domain, course: selectedCourse.value.title }
+      params: { domain: currentDomain.value.domain, course: selectedCourse.value.title },
+      query: { sortBy: sortBy.value }
     })
   } else {
-    router.push({ name: 'Domain', params: { domain: currentDomain.value.domain } })
+    router.push({
+      name: 'Domain',
+      params: { domain: currentDomain.value.domain },
+      query: { sortBy: sortBy.value }
+    })
   }
 })
 </script>
