@@ -136,8 +136,8 @@ import courses from './courses.js'
 
 // Data
 const domains = ref(courses)
-const currentDomain = ref(domains.value[0])
-const lastSelectedDomain = ref(domains.value[0])
+const currentDomain = ref(null)
+const lastSelectedDomain = ref(null)
 const searchTerm = ref('')
 const sortBy = ref('az')
 const selectedCourse = ref(null)
@@ -166,7 +166,7 @@ const router = createRouter({
     {
       path: '/search',
       name: 'Search',
-      beforeEnter: (to, from) => {
+      beforeEnter: (to) => {
         const params = to.query
         searchTerm.value = params.searchTerm || ''
         sortBy.value = params.sortBy || 'az'
@@ -180,7 +180,7 @@ const router = createRouter({
     {
       path: '/:domain/:course?',
       name: 'Domain',
-      beforeEnter: (to, from) => {
+      beforeEnter: (to) => {
         const { domain, course } = to.params
         const domainObj = domains.value.find((d) => d.domain === domain)
         if (domainObj) {
@@ -201,7 +201,7 @@ const router = createRouter({
     {
       path: '/:catchAll(.*)',
       redirect: () => {
-        return { name: 'Domain', params: { domain: domains.value[0].domain } }x
+        return { name: 'Domain', params: { domain: domains.value[0].domain } }
       }
     }
   ]
