@@ -129,14 +129,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, watchEffect } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Fuse from 'fuse.js'
 import courses from './courses.js'
 
-// State
+// Data
 const domains = ref(courses)
-const currentDomain = ref(null)
+const currentDomain = ref(domains.value[0])
+const lastSelectedDomain = ref(domains.value[0])
 const searchTerm = ref('')
 const sortBy = ref('az')
 const selectedCourse = ref(null)
@@ -145,93 +146,8 @@ const coursesPerPage = ref(3)
 const filteredCourses = ref([])
 const fuseOptions = { keys: ['title', 'description'], includeScore: true }
 
-// Router
-const router = setupRouter()
-
-// Methods
-const selectDomain = (domain) => updateDomain(domain)
-const showCourseDetails = (course) => (selectedCourse.value = course)
-const hideCourseDetails = () => (selectedCourse.value = null)
-const searchCourses = () => updateFilteredCourses()
-const sortCourses = () => updateSortedCourses()
-const goToPage = (page) => (currentPage.value = page)
-const navigateDomains = (direction) => navigateToDomain(direction)
-const getDomainName = (index) =>
-  index >= 0 && index < domains.value.length ? domains.value[index].domain : ''
-
-// Computed Properties
-const updateTitle = computed(() =>
-  searchTerm.value !== ''
-    ? 'Search results...'
-    : currentDomain.value
-    ? currentDomain.value.domain
-    : 'Loading...'
-)
-const totalPages = computed(() => Math.ceil(filteredCourses.value.length / coursesPerPage.value))
-const paginatedCourses = computed(() => paginateCourses())
-
-// Watchers and Initialization
-watchEffect(() => setQueryParameters())
-onMounted(() => setInitialDomain())
-
-// Router setup
-function setupRouter() {
-  return createRouter({
-    history: createWebHashHistory(),
-    routes: [
-      {
-        path: '/:domain?',
-        component: { template: '<div></div>' },
-        props: (route) => ({
-          domain: route.params.domain,
-          searchTerm: route.query.searchTerm,
-          sortBy: route.query.sortBy
-        })
-      }
-    ]
-  })
-}
-
-// Domain related functions
-function updateDomain(domain) {
-  currentDomain.value = domain
-  updateRoute({ path: `/${domain.domain}` })
-}
-
-function defaultDomain() {
-  const defaultDomain = domains.value[0]
-  selectDomain(defaultDomain)
-}
-
-function navigateToDomain(direction) {
-  const currentIndex = domains.value.indexOf(currentDomain.value)
-  const nextIndex = currentIndex + direction
-  if (nextIndex >= 0 && nextIndex < domains.value.length) {
-    selectDomain(domains.value[nextIndex])
-  }
-}
-
-// Search and Filter functions
-function updateFilteredCourses() {
-  searchTerm.value === ''
-    ? (filteredCourses.value = currentDomain.value.courses)
-    : searchAllCourses()
-}
-
-function searchAllCourses() {
-  const fuse = new Fuse(
-    domains.value.flatMap((domain) => domain.courses),
-    fuseOptions
-  )
-  filteredCourses.value = fuse.search(searchTerm.value).map((result) => result.item)
-}
-
-function updateSortedCourses() {
-  filteredCourses.value = sortItems(filteredCourses.value, sortBy.value)
-  currentPage.value = 1
-}
-
-function sortItems(items, by) {
+// Helper functions
+const sortItems = (items, by) => {
   const sortingStrategies = {
     az: (a, b) => a.title.localeCompare(b.title),
     za: (a, b) => b.title.localeCompare(a.title),
@@ -240,46 +156,144 @@ function sortItems(items, by) {
     type: (a, b) => a.type.localeCompare(b.type),
     'most-popular': (a, b) => b.popularity - a.popularity
   }
-  return items.sort(sortingStrategies[by])
+  return items.slice().sort(sortingStrategies[by])
 }
 
-// Pagination function
-function paginateCourses() {
-  const start = (currentPage.value - 1) * coursesPerPage.value
-  return filteredCourses.value.slice(start, start + coursesPerPage.value)
+// Router setup
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    {
+      path: '/search',
+      name: 'Search',
+      beforeEnter: (to, from) => {
+        const params = to.query
+        searchTerm.value = params.searchTerm || ''
+        sortBy.value = params.sortBy || 'az'
+        currentDomain.value = null
+        selectedCourse.value = null
+        searchCourses()
+      }
+    },
+    {
+      path: '/:domain/:course?',
+      name: 'Domain',
+      beforeEnter: (to, from) => {
+        const { domain, course } = to.params
+        const domainObj = domains.value.find((d) => d.domain === domain)
+        if (domainObj) {
+          selectDomain(domainObj)
+
+          if (course) {
+            const courseObj = domainObj.courses.find((c) => c.title === course)
+            if (courseObj) {
+              showCourseDetails(courseObj)
+            }
+          }
+        }
+      }
+    },
+    {
+      path: '/:catchAll(.*)',
+      redirect: () => {
+        return { name: 'Search' }
+      }
+    }
+  ]
+})
+
+// Methods
+const selectDomain = (domain) => {
+  lastSelectedDomain.value = domain
+  currentDomain.value = domain
+  searchTerm.value = ''
+  updateFilteredCourses()
 }
 
-// URL Parameter handling
-function setQueryParameters() {
-  const query = router.currentRoute.value.query
-  searchTerm.value = query.searchTerm || ''
-  sortBy.value = query.sortBy || 'az'
-}
-
-function setInitialDomain() {
-  const routeDomain = router.currentRoute.value.params.domain
-  const matchedDomain = domains.value.find((domain) => domain.domain === routeDomain)
-
-  matchedDomain ? selectDomain(matchedDomain) : defaultDomain()
-
-  // Set the search and sort parameters from the URL.
-  searchTerm.value = router.currentRoute.value.query.searchTerm || ''
-  sortBy.value = router.currentRoute.value.query.sortBy || 'az'
-
-  // Run search and sort after setting initial parameters.
-  searchCourses()
+const updateFilteredCourses = () => {
+  if (searchTerm.value === '') {
+    filteredCourses.value = currentDomain.value.courses
+  } else {
+    const fuse = new Fuse(
+      domains.value.flatMap((domain) => domain.courses),
+      fuseOptions
+    )
+    filteredCourses.value = fuse.search(searchTerm.value).map((result) => result.item)
+  }
   sortCourses()
 }
 
-function updateRoute({ path }) {
-  router.push({
-    path,
-    query: {
-      searchTerm: searchTerm.value,
-      sortBy: sortBy.value
-    }
-  })
+const showCourseDetails = (course) => {
+  selectedCourse.value = course
 }
+
+const hideCourseDetails = () => {
+  selectedCourse.value = null
+}
+
+const searchCourses = () => {
+  if (searchTerm.value === '') {
+    currentDomain.value = lastSelectedDomain.value
+  } else {
+    currentDomain.value = null
+  }
+  updateFilteredCourses()
+}
+
+const sortCourses = () => {
+  filteredCourses.value = sortItems(filteredCourses.value, sortBy.value)
+  currentPage.value = 1
+}
+
+const goToPage = (page) => {
+  currentPage.value = page
+}
+
+const navigateDomains = (direction) => {
+  const currentIndex = domains.value.indexOf(currentDomain.value)
+  const nextIndex = currentIndex + direction
+  if (nextIndex >= 0 && nextIndex < domains.value.length) {
+    selectDomain(domains.value[nextIndex])
+  }
+}
+
+const getDomainName = (index) => {
+  return index >= 0 && index < domains.value.length ? domains.value[index].domain : ''
+}
+
+// Computed properties
+const updateTitle = computed(() =>
+  searchTerm.value !== ''
+    ? 'Search results...'
+    : lastSelectedDomain.value
+    ? lastSelectedDomain.value.domain
+    : 'Loading...'
+)
+
+const totalPages = computed(() => Math.ceil(filteredCourses.value.length / coursesPerPage.value))
+
+const paginatedCourses = computed(() => {
+  const start = (currentPage.value - 1) * coursesPerPage.value
+  return filteredCourses.value.slice(start, start + coursesPerPage.value)
+})
+
+// Lifecycle hooks
+onMounted(() => {
+  router.push({ path: window.location.hash.slice(1) })
+})
+
+watch([searchTerm, sortBy, selectedCourse, currentDomain], () => {
+  if (currentDomain.value === null) {
+    router.push({ name: 'Search', query: { searchTerm: searchTerm.value, sortBy: sortBy.value } })
+  } else if (selectedCourse.value !== null) {
+    router.push({
+      name: 'Domain',
+      params: { domain: currentDomain.value.domain, course: selectedCourse.value.title }
+    })
+  } else {
+    router.push({ name: 'Domain', params: { domain: currentDomain.value.domain } })
+  }
+})
 </script>
 
 <style>
