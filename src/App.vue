@@ -132,21 +132,33 @@
 import { ref, onMounted, computed, watch } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Fuse from 'fuse.js'
-import courses from './courses.js'
+import courses from './data/courses.js'
 
-// Data
+// ********** COMPONENTS **********
+const MainContent = {
+  template: '<div><slot></slot></div>'
+}
+
+// ********** CONSTANTS **********
+const ROUTE_NAMES = {
+  SEARCH: 'Search',
+  DOMAIN: 'Domain'
+}
+
+// ********** DATA **********
 const domains = ref(courses)
-const currentDomain = ref(null)
-const lastSelectedDomain = ref(null)
+const currentDomain = ref(domains.value[0])
+const lastSelectedDomain = ref(domains.value[0])
 const searchTerm = ref('')
 const sortBy = ref('az')
 const selectedCourse = ref(null)
 const currentPage = ref(1)
-const coursesPerPage = ref(3)
+const coursesPerPage = ref(1)
 const filteredCourses = ref([])
 const fuseOptions = { keys: ['title', 'description'], includeScore: true }
+const router = ref(null)
 
-// Helper functions
+// ********** HELPER FUNCTIONS **********
 const sortItems = (items, by) => {
   const sortingStrategies = {
     az: (a, b) => a.title.localeCompare(b.title),
@@ -159,55 +171,7 @@ const sortItems = (items, by) => {
   return items.slice().sort(sortingStrategies[by])
 }
 
-// Router setup
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [
-    {
-      path: '/search',
-      name: 'Search',
-      beforeEnter: (to) => {
-        const params = to.query
-        searchTerm.value = params.searchTerm || ''
-        sortBy.value = params.sortBy || 'az'
-        currentDomain.value = null
-        selectedCourse.value = null
-        if (searchTerm.value) {
-          searchCourses()
-        }
-      }
-    },
-    {
-      path: '/:domain/:course?',
-      name: 'Domain',
-      beforeEnter: (to) => {
-        const { domain, course } = to.params
-        const domainObj = domains.value.find((d) => d.domain === domain)
-        if (domainObj) {
-          selectDomain(domainObj)
-
-          if (course) {
-            const courseObj = domainObj.courses.find((c) => c.title === course)
-            if (courseObj) {
-              showCourseDetails(courseObj)
-            }
-          }
-        }
-        const params = to.query
-        sortBy.value = params.sortBy || 'az'
-        sortCourses()
-      }
-    },
-    {
-      path: '/:catchAll(.*)',
-      redirect: () => {
-        return { name: 'Domain', params: { domain: domains.value[0].domain } }
-      }
-    }
-  ]
-})
-
-// Methods
+// ********** METHODS **********
 const selectDomain = (domain) => {
   lastSelectedDomain.value = domain
   currentDomain.value = domain
@@ -215,16 +179,20 @@ const selectDomain = (domain) => {
   updateFilteredCourses()
 }
 
-const updateFilteredCourses = () => {
+const filterCourses = () => {
   if (searchTerm.value === '') {
-    filteredCourses.value = currentDomain.value.courses
+    return currentDomain.value.courses
   } else {
     const fuse = new Fuse(
       domains.value.flatMap((domain) => domain.courses),
       fuseOptions
     )
-    filteredCourses.value = fuse.search(searchTerm.value).map((result) => result.item)
+    return fuse.search(searchTerm.value).map((result) => result.item)
   }
+}
+
+const updateFilteredCourses = () => {
+  filteredCourses.value = filterCourses()
   sortCourses()
 }
 
@@ -266,7 +234,42 @@ const getDomainName = (index) => {
   return index >= 0 && index < domains.value.length ? domains.value[index].domain : ''
 }
 
-// Computed properties
+const updateQueryParams = (params) => {
+  searchTerm.value = params.searchTerm || ''
+  sortBy.value = params.sortBy || 'az'
+}
+
+const handleSearchRoute = () => {
+  currentDomain.value = null
+  selectedCourse.value = null
+  searchCourses()
+}
+
+const handleDomainRoute = (params) => {
+  const domainObj = domains.value.find((d) => d.domain === params.domain)
+  if (domainObj) {
+    selectDomain(domainObj)
+    if (params.course) {
+      const courseObj = domainObj.courses.find((c) => c.title === params.course)
+      if (courseObj) {
+        showCourseDetails(courseObj)
+      }
+    }
+  }
+}
+
+const updateRoute = (to, from) => {
+  if (to) {
+    updateQueryParams(to.query)
+    if (to.name === ROUTE_NAMES.SEARCH) {
+      handleSearchRoute()
+    } else if (to.name === ROUTE_NAMES.DOMAIN) {
+      handleDomainRoute(to.params)
+    }
+  }
+}
+
+// ********** COMPUTED PROPERTIES **********
 const updateTitle = computed(() =>
   searchTerm.value !== ''
     ? 'Search results...'
@@ -282,31 +285,64 @@ const paginatedCourses = computed(() => {
   return filteredCourses.value.slice(start, start + coursesPerPage.value)
 })
 
-onMounted(async () => {
-  await router.push({ path: window.location.hash.slice(1) })
+// ********** ROUTER SETUP **********
 
-  if (router.currentRoute.value.name === 'Search') {
-    searchCourses()
-  } else if (router.currentRoute.value.name === 'Domain') {
-    sortCourses()
+// ********** WATCHERS & LIFECYCLE HOOKS **********
+onMounted(async () => {
+  if (typeof window !== 'undefined') {
+    // Now, we set the router
+    router.value = createRouter({
+      history: createWebHashHistory(),
+      routes: [
+        {
+          path: '/search',
+          name: ROUTE_NAMES.SEARCH,
+          component: MainContent,
+          beforeEnter: updateRoute // Here
+        },
+        {
+          path: '/:domain/:course?',
+          name: ROUTE_NAMES.DOMAIN,
+          component: MainContent,
+          beforeEnter: updateRoute // Here
+        },
+        {
+          path: '/:catchAll(.*)',
+          redirect: () => {
+            return { name: ROUTE_NAMES.DOMAIN, params: { domain: domains.value[0].domain } }
+          }
+        }
+      ]
+    })
+
+    await router.value.push({ path: window.location.hash.slice(1) })
+    updateFilteredCourses()
+    updateRoute(router.value.currentRoute.value)
   }
 })
 
 watch([searchTerm, sortBy, selectedCourse, currentDomain], () => {
-  if (currentDomain.value === null) {
-    router.push({ name: 'Search', query: { searchTerm: searchTerm.value, sortBy: sortBy.value } })
-  } else if (selectedCourse.value !== null) {
-    router.push({
-      name: 'Domain',
-      params: { domain: currentDomain.value.domain, course: selectedCourse.value.title },
-      query: { sortBy: sortBy.value }
-    })
-  } else {
-    router.push({
-      name: 'Domain',
-      params: { domain: currentDomain.value.domain },
-      query: { sortBy: sortBy.value }
-    })
+  // Check if router.value is available before trying to use it
+  if (router.value) {
+    const route =
+      currentDomain.value === null
+        ? {
+            name: ROUTE_NAMES.SEARCH,
+            query: { searchTerm: searchTerm.value, sortBy: sortBy.value }
+          }
+        : selectedCourse.value !== null
+        ? {
+            name: ROUTE_NAMES.DOMAIN,
+            params: { domain: currentDomain.value.domain, course: selectedCourse.value.title },
+            query: { sortBy: sortBy.value }
+          }
+        : {
+            name: ROUTE_NAMES.DOMAIN,
+            params: { domain: currentDomain.value.domain },
+            query: { sortBy: sortBy.value }
+          }
+    router.value.push(route)
+    updateRoute(route)
   }
 })
 </script>
