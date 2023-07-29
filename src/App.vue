@@ -150,10 +150,11 @@ const domains = ref(courses)
 const currentDomain = ref(domains.value[0])
 const lastSelectedDomain = ref(domains.value[0])
 const searchTerm = ref('')
+const lastSearchTerm = ref('')
 const sortBy = ref('az')
 const selectedCourse = ref(null)
 const currentPage = ref(1)
-const coursesPerPage = ref(1)
+const coursesPerPage = ref(3)
 const filteredCourses = ref([])
 const fuseOptions = { keys: ['title', 'description'], includeScore: true }
 const router = ref(null)
@@ -241,7 +242,7 @@ const updateQueryParams = (params) => {
 
 const handleSearchRoute = () => {
   currentDomain.value = null
-  selectedCourse.value = null
+  lastSearchTerm.value = searchTerm.value
   searchCourses()
 }
 
@@ -249,6 +250,9 @@ const handleDomainRoute = (params) => {
   const domainObj = domains.value.find((d) => d.domain === params.domain)
   if (domainObj) {
     selectDomain(domainObj)
+    if (params.sortBy) {
+      sortBy.value = params.sortBy
+    }
     if (params.course) {
       const courseObj = domainObj.courses.find((c) => c.title === params.course)
       if (courseObj) {
@@ -290,7 +294,6 @@ const paginatedCourses = computed(() => {
 // ********** WATCHERS & LIFECYCLE HOOKS **********
 onMounted(async () => {
   if (typeof window !== 'undefined') {
-    // Now, we set the router
     router.value = createRouter({
       history: createWebHashHistory(),
       routes: [
@@ -321,30 +324,45 @@ onMounted(async () => {
   }
 })
 
-watch([searchTerm, sortBy, selectedCourse, currentDomain], () => {
-  // Check if router.value is available before trying to use it
-  if (router.value) {
-    const route =
-      currentDomain.value === null
-        ? {
-            name: ROUTE_NAMES.SEARCH,
-            query: { searchTerm: searchTerm.value, sortBy: sortBy.value }
-          }
-        : selectedCourse.value !== null
-        ? {
-            name: ROUTE_NAMES.DOMAIN,
-            params: { domain: currentDomain.value.domain, course: selectedCourse.value.title },
-            query: { sortBy: sortBy.value }
-          }
-        : {
-            name: ROUTE_NAMES.DOMAIN,
-            params: { domain: currentDomain.value.domain },
-            query: { sortBy: sortBy.value }
-          }
-    router.value.push(route)
-    updateRoute(route)
+const debounce = (func, delay) => {
+  let debounceTimer
+  return function (...args) {
+    const context = this
+    clearTimeout(debounceTimer)
+    debounceTimer = setTimeout(() => func.apply(context, args), delay)
   }
-})
+}
+
+watch(
+  [searchTerm, sortBy, selectedCourse, currentDomain],
+  debounce(() => {
+    if (router.value) {
+      const route =
+        currentDomain.value === null
+          ? {
+              name: ROUTE_NAMES.SEARCH,
+              query: { searchTerm: searchTerm.value, sortBy: sortBy.value }
+            }
+          : selectedCourse.value !== null
+          ? {
+              name: ROUTE_NAMES.DOMAIN,
+              params: { domain: currentDomain.value.domain, course: selectedCourse.value.title },
+              query: { sortBy: sortBy.value }
+            }
+          : {
+              name: ROUTE_NAMES.DOMAIN,
+              params: { domain: currentDomain.value.domain },
+              query: { sortBy: sortBy.value }
+            }
+      // Include the sortBy parameter in the URL if the currentDomain is not null
+      if (currentDomain.value !== null) {
+        route.query.sortBy = sortBy.value
+      }
+      router.value.push(route)
+      updateRoute(route)
+    }
+  }, 100)
+)
 </script>
 
 <style>
