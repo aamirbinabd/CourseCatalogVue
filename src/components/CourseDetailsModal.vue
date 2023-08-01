@@ -2,8 +2,10 @@
   <!-- Course Slide Up Modal -->
   <Transition name="slide-up" mode="out-in">
     <div v-if="selectedCourse" class="absolute top-0 left-0 right-0 h-full bg-bg-white">
+      <!-- Header -->
       <ModalHeader :selectedCourse="selectedCourse" @hideCourseDetails="hideCourseDetails" />
 
+      <!-- Info -->
       <div
         class="flex flex-wrap justify-between gap-[45px] pt-[55px] pb-[145px] max-w-[1030px] w-full mx-auto px-[18px] md:justify-center md:pb-[230px]"
       >
@@ -11,10 +13,14 @@
         <img src="/assets/action-card.png" alt="" />
       </div>
 
-      <CourseDetails :selectedCourse="selectedCourse" />
+      <!-- Details Tile -->
 
+      <CourseDetails :selectedCourse="selectedCourse" />
+      <!-- Outcome -->
       <CourseOutcome :selectedCourse="selectedCourse" />
-      <div class="DottedBg flex flex-col pt-[55px] pb-[75px] px-[18px] h-full">
+
+      <!-- Footer -->
+      <div class="text-tx-dark DottedBg flex flex-col pt-[55px] pb-[75px] px-[18px] h-full">
         <h3 class="h2-inter flex justify-center mx-auto mb-[56px]">
           Alumni Who Enrolled in Similar Courses
         </h3>

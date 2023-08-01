@@ -1,11 +1,10 @@
 <template>
   <div class="dropdown text-tx-dark">
     <button
-      class="label-text flex justify-center gap-[10px] border-[1.5px] border-solid border-tx-dark rounded-[7px] p-[12px] w-full"
+      class="label-text flex justify-center gap-[5px] border-[1.5px] border-solid border-tx-dark rounded-[7px] p-[12px] w-full"
       @click="isOpen = !isOpen"
     >
-      {{ sortByLabel }}
-
+      Sort By:
       <span>
         <svg
           width="17"
@@ -75,7 +74,7 @@ export default {
 <style scoped>
 .dropdown {
   position: relative;
-  width: 40%;
+  min-width: 20%;
 }
 
 .dropdown button {

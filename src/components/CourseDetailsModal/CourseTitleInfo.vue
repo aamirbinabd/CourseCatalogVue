@@ -8,8 +8,8 @@
       >
       </label>
     </div>
-    <h4 class="h2-inter">{{ selectedCourse.title }}</h4>
-    <h5 class="h5-ibm">{{ selectedCourse.description }}</h5>
+    <h4 class="text-tx-dark h2-inter">{{ selectedCourse.title }}</h4>
+    <h5 class="text-tx-dark h5-ibm">{{ selectedCourse.description }}</h5>
   </div>
 </template>
 
