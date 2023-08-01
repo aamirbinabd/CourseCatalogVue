@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "fuse.js": "^6.6.2",
+    "masonry-layout": "^4.2.2",
     "vue": "^3.3.4",
+    "vue-next-select": "^2.10.5",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap');
+
+/* INTER FONT */
+
+.h1-inter {
+  font-family: 'Inter';
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 55px;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (max-width: 800px) {
+  .h1-inter {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+  }
+}
+
+.h2-inter {
+  font-family: 'Inter';
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (max-width: 800px) {
+  .h2-inter {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+  }
+}
+
+.h3-inter {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+}
+
+.h4-inter {
+  font-family: 'Inter';
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+}
+
+.h5-inter {
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+}
+
+.h6-inter-reg {
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+}
+
+.h6-inter-med {
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: -0.02em;
+}
+
+.h6-inter-bold {
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+}
+
+/* END */
+
+/* IBM PLEX FONT */
+
+.h1-ibm {
+  font-family: 'IBM Plex Sans Condensed';
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+}
+
+.h2-ibm {
+  font-family: 'IBM Plex Sans Condensed';
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0em;
+}
+
+.h3-ibm {
+  font-family: 'IBM Plex Sans Condensed';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+}
+
+.h4-ibm-reg {
+  font-family: 'IBM Plex Sans Condensed';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+.h4-ibm-med {
+  font-family: 'IBM Plex Sans' Condensed;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.h5-ibm-bold {
+  font-family: 'IBM Plex Sans Condensed';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+/* END */
+
+p {
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+}
+
+.label-text {
+  font-family: 'IBM Plex Sans Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+}

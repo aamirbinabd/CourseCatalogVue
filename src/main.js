@@ -3,6 +3,8 @@ import App from './App.vue'
 
 const app = createApp(App)
 
-import './style.css'
+import './styles/style.css'
+import './styles/typography.css'
+import './styles/global.css'
 
 app.mount('#app')

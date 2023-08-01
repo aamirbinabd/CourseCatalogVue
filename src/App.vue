@@ -1,19 +1,36 @@
 <template>
-  <div id="app" class="bg-amber-100 w-full h-screen flex items-center overflow-hidden">
-    <div class="relative flex flex-col mx-auto container max-w-[900px]">
-      <div id="Catalog">
-        <div class="grid grid-cols-[25%_75%] mb-[20px]">
+  <div class="relative bg-bg-white w-full pt-[65px] pb-[65px] overflow-hidden md:pt-[0]">
+    <div
+      class="hidden h2-ibm justify-between mx-auto max-w-[1215px] px-[18px] pt-[65px] pb-[27px] border-b border-dull-grey md:pt-[7px] md:pb-[7px] md:mb-[27px] md:flex"
+    >
+      Catalog Menu
+      <span>
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 20.5L10.575 19.1L16.175 13.5H4V11.5H16.175L10.575 5.9L12 4.5L20 12.5L12 20.5Z"
+            fill="#1D1A3F"
+          />
+        </svg>
+      </span>
+    </div>
+    <div class="px-[18px]">
+      <div class="flex flex-col mx-auto container max-w-[1215px]">
+        <div class="grid grid-cols-[1fr,2.7fr] gap-[20px] md:grid-cols-[1fr]">
           <!-- Sidebar -->
-          <aside
-            class="border border-solid border-gray-400 h-[400px] bg-gray-200 p-[10px] mr-[20px]"
-          >
-            <h1 class="font-bold">Course Domains</h1>
+          <aside class="mr-[20px] text-dull-grey md:hidden">
+            <h3 class="h2-ibm mb-[20px] text-tx-dark">Domains</h3>
             <div>
               <div
-                class="cursor-pointer"
+                class="FilterLink h6-inter-med cursor-pointer mb-[20px]"
                 v-for="(domain, index) in domains"
                 :key="`domain_${index}`"
-                :class="{ underline: currentDomain === domain }"
+                :class="{ 'text-tx-blue Selected': currentDomain === domain }"
                 @click="selectDomain(domain)"
               >
                 {{ domain.domain }}
@@ -21,118 +38,106 @@
             </div>
           </aside>
           <!-- Course Card Section -->
-          <main class="border border-solid border-gray-400 bg-gray-200 p-[10px] w-full">
-            <div class="mb-[10px] flex flex-row justify-between">
+          <main class="w-full h-full">
+            <div class="mb-[32px] flex flex-row justify-between gap-[15px]">
               <input
                 type="text"
-                class="px-[10px]"
+                class="Gradient h4-ibm-med px-[15px] py-[9px] w-full rounded-[7px] border border-solid border-dull-white"
                 placeholder="Search All Courses"
                 v-model="searchTerm"
                 @input="searchCourses"
               />
-              <select name="sort-courses" id="sort-courses" v-model="sortBy" @change="sortCourses">
-                <option value="az">A-Z</option>
-                <option value="za">Z-A</option>
-                <option value="duration-asc">Duration (Ascending)</option>
-                <option value="duration-desc">Duration (Descending)</option>
-                <option value="type">Course Type</option>
-                <option value="most-popular">Most Popular</option>
-              </select>
+              <DropdownSelect v-model="sortBy" :options="sortOptions" />
             </div>
-            <h1
-              class="border border-double border-gray-400 p-[10px] mb-[10px]"
-              id="course-category-title"
-            >
-              {{ updateTitle }}
-            </h1>
-            <div class="flex flex-col gap-[px]">
-              <div
-                class="border border-double border-gray-400 p-[10px] mb-[10px] cursor-pointer"
+            <!-- Header Card -->
+            <div v-if="searchTerm" class="mb-[32px]">
+              <h1>Search Results...</h1>
+            </div>
+            <HeaderCard
+              v-else
+              v-if="currentDomain"
+              class="mb-[55px]"
+              :titleValue="currentDomain.domain"
+              :subtitleValue="currentDomain.domain"
+              :descriptionValue="currentDomain.description"
+            />
+            <div id="grid" class="GridElement flex mb-[70px] w-full">
+              <CourseCard
                 v-for="course in paginatedCourses"
                 :key="`${course.domain}_${course.title}`"
-                @click="showCourseDetails(course)"
-              >
-                <label class="text-xs" v-html="course.type"></label>
-                <h1 class="text-lg" v-html="course.title"></h1>
-                <p class="text-sm" v-html="course.duration"></p>
-                <p>Included Courses: {{ course.includedCourses.join(', ') }}</p>
-                <dl v-html="course.description"></dl>
-                <button @click="showCourseDetails(course)" class="underline mt-[5px]">
-                  Read More
-                </button>
-              </div>
+                :course="course"
+                :showCourseDetails="showCourseDetails"
+              />
             </div>
-            <div v-if="totalPages > 1" class="pagination">
-              <div class="flex justify-center mt-4">
-                <button
-                  class="px-2 py-1 bg-blue-500 text-white mx-1"
-                  v-for="page in totalPages"
-                  :key="page"
-                  @click="goToPage(page)"
-                >
-                  {{ page }}
-                </button>
-              </div>
-            </div>
+            <Pagination
+              class="mb-[25px]"
+              :total-pages="totalPages"
+              @page-changed="goToPage"
+              :currentPage="currentPage"
+            />
           </main>
         </div>
         <!-- Course Navigation-->
-        <div
-          class="flex justify-between w-full bg-gray-200 border border-solid border-gray-400 p-[5px_8px]"
-        >
-          <button @click="navigateDomains(-1)">
-            <span>&lt;</span>
+        <div class="Gradient h2-ibm flex justify-between w-full p-[12px_20px] rounded-[7px]">
+          <button
+            class="flex items-center gap-[10px]"
+            @click="navigateDomains(-1)"
+            :class="{
+              'opacity-50': domains.indexOf(currentDomain) === 0,
+              'cursor-not-allowed': domains.indexOf(currentDomain) === 0,
+              'text-tx-blue': domains.indexOf(currentDomain) !== 0
+            }"
+          >
+            <span
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="m7.85 13l2.85 2.85q.3.3.288.7t-.288.7q-.3.3-.712.313t-.713-.288L4.7 12.7q-.3-.3-.3-.7t.3-.7l4.575-4.575q.3-.3.713-.287t.712.312q.275.3.288.7t-.288.7L7.85 11H19q.425 0 .713.288T20 12q0 .425-.288.713T19 13H7.85Z"
+                />
+              </svg>
+            </span>
             <span>{{ getDomainName(domains.indexOf(currentDomain) - 1) }}</span>
           </button>
-          <button @click="navigateDomains(1)">
+          <button
+            class="flex items-center gap-[10px]"
+            @click="navigateDomains(1)"
+            :class="{
+              'opacity-50': domains.indexOf(currentDomain) === domains.length - 1,
+              'cursor-not-allowed': domains.indexOf(currentDomain) === domains.length - 1,
+              'text-tx-blue': domains.indexOf(currentDomain) !== domains.length - 1
+            }"
+          >
             <span>{{ getDomainName(domains.indexOf(currentDomain) + 1) }}</span>
-            <span>&gt;</span>
+            <span
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M16.15 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.313t.712.288L19.3 11.3q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7L16.15 13Z"
+                />
+              </svg>
+            </span>
           </button>
         </div>
       </div>
-      <!-- Course Slide Up Modal -->
-      <Transition name="slide-up" mode="out-in">
-        <div
-          v-if="selectedCourse"
-          class="absolute w-full h-screen bg-gray-200 border border-gray-400 border-solid"
-        >
-          <div class="flex flex-row justify-end p-[5px_10px]">
-            <button @click="hideCourseDetails">x</button>
-          </div>
-          <div class="h-[1px] bg-gray-400"></div>
-          <div class="p-[10px_10px]">
-            <h1 class="mb-[5px]">{{ selectedCourse.title }}</h1>
-            <p class="max-w-[600px]">{{ selectedCourse.description }}</p>
-          </div>
-          <div class="h-[1px] bg-gray-400"></div>
-          <div class="p-[10px_10px]">
-            <h1>Prerequisites:</h1>
-            <p>{{ selectedCourse.prerequisites }}</p>
-            <h1>Duration:</h1>
-            <p>{{ selectedCourse.duration }}</p>
-            <h1>What's Included:</h1>
-            <p>{{ selectedCourse.includedCourses.join(', ') }}</p>
-            <h1>Location:</h1>
-            <p>{{ selectedCourse.location }}</p>
-          </div>
-          <div class="h-[1px] bg-gray-400"></div>
-          <div class="p-[10px_10px]">
-            <h1>What you learn</h1>
-            <p>{{ selectedCourse.whatYouLearn }}</p>
-            <h1>What you become</h1>
-            <p>{{ selectedCourse.whatYouBecome }}</p>
-          </div>
-        </div>
-      </Transition>
+      <CourseDetailsModal :selectedCourse="selectedCourse" @hideCourseDetails="hideCourseDetails" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed, watch } from 'vue'
+import { ref, onMounted, computed, watch, nextTick } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Fuse from 'fuse.js'
 import courses from './data/courses.js'
+import SearchInput from './components/SearchInput.vue'
+import HeaderCard from './components/HeaderCard.vue'
+import CourseCard from './components/CourseCard.vue'
+import FilterLink from './components/FilterLink.vue'
+import Pagination from './components/Pagination.vue'
+import Loader from './components/Loader.vue'
+import DropdownSelect from './components/DropdownSelect.vue'
+import Masonry from 'masonry-layout'
+import CourseDetailsModal from './components/CourseDetailsModal.vue'
 
 // ********** COMPONENTS **********
 const MainContent = {
@@ -145,6 +150,24 @@ const ROUTE_NAMES = {
   DOMAIN: 'Domain'
 }
 
+const sortOptions = ref([
+  { label: 'A-Z', value: 'az' },
+  { label: 'Z-A', value: 'za' },
+  { label: 'Duration (Ascending)', value: 'duration-asc' },
+  { label: 'Duration (Descending)', value: 'duration-desc' },
+  { label: 'Course Type', value: 'type' },
+  { label: 'Most Popular', value: 'most-popular' }
+])
+
+const sortingStrategies = {
+  az: (a, b) => a.title.localeCompare(b.title),
+  za: (a, b) => b.title.localeCompare(a.title),
+  'duration-asc': (a, b) => parseInt(a.duration) - parseInt(b.duration),
+  'duration-desc': (a, b) => parseInt(b.duration) - parseInt(a.duration),
+  type: (a, b) => a.type.localeCompare(b.type),
+  'most-popular': (a, b) => b.popularity - a.popularity
+}
+
 // ********** DATA **********
 const domains = ref(courses)
 const currentDomain = ref(domains.value[0])
@@ -154,21 +177,17 @@ const lastSearchTerm = ref('')
 const sortBy = ref('az')
 const selectedCourse = ref(null)
 const currentPage = ref(1)
-const coursesPerPage = ref(3)
+const coursesPerPage = ref(4)
 const filteredCourses = ref([])
 const fuseOptions = { keys: ['title', 'description'], includeScore: true }
 const router = ref(null)
+const fuse = ref(new Fuse([], fuseOptions))
+const isLoading = ref(false)
+const error = ref(null)
+const debounceTimer = ref(null)
 
 // ********** HELPER FUNCTIONS **********
 const sortItems = (items, by) => {
-  const sortingStrategies = {
-    az: (a, b) => a.title.localeCompare(b.title),
-    za: (a, b) => b.title.localeCompare(a.title),
-    'duration-asc': (a, b) => parseInt(a.duration) - parseInt(b.duration),
-    'duration-desc': (a, b) => parseInt(b.duration) - parseInt(a.duration),
-    type: (a, b) => a.type.localeCompare(b.type),
-    'most-popular': (a, b) => b.popularity - a.popularity
-  }
   return items.slice().sort(sortingStrategies[by])
 }
 
@@ -178,17 +197,17 @@ const selectDomain = (domain) => {
   currentDomain.value = domain
   searchTerm.value = ''
   updateFilteredCourses()
+  nextTick(() => {
+    currentPage.value = 1
+  })
 }
 
 const filterCourses = () => {
   if (searchTerm.value === '') {
     return currentDomain.value.courses
   } else {
-    const fuse = new Fuse(
-      domains.value.flatMap((domain) => domain.courses),
-      fuseOptions
-    )
-    return fuse.search(searchTerm.value).map((result) => result.item)
+    fuse.value.setCollection(domains.value.flatMap((domain) => domain.courses))
+    return fuse.value.search(searchTerm.value).map((result) => result.item)
   }
 }
 
@@ -289,10 +308,14 @@ const paginatedCourses = computed(() => {
   return filteredCourses.value.slice(start, start + coursesPerPage.value)
 })
 
-// ********** ROUTER SETUP **********
+// ********** ROUTER, WATCHERS & LIFECYCLE HOOKS **********
 
-// ********** WATCHERS & LIFECYCLE HOOKS **********
+let msnry = null
+
 onMounted(async () => {
+  isLoading.value = true
+  error.value = null
+
   if (typeof window !== 'undefined') {
     router.value = createRouter({
       history: createWebHashHistory(),
@@ -318,20 +341,61 @@ onMounted(async () => {
       ]
     })
 
-    await router.value.push({ path: window.location.hash.slice(1) })
-    updateFilteredCourses()
-    updateRoute(router.value.currentRoute.value)
+    // Initialize Masonry here
+    const grid = document.getElementById('grid')
+    if (grid) {
+      msnry = new Masonry(grid, {
+        itemSelector: '.CourseCard',
+        columnWidth: '.CourseCard',
+        percentPosition: true,
+        gutter: 24,
+        resize: true,
+        stagger: 30,
+        animationOptions: {
+          duration: 750,
+          easing: 'ease',
+          queue: false
+        }
+      })
+    }
+
+    try {
+      await router.value.push({ path: window.location.hash.slice(1) })
+      updateFilteredCourses()
+      if (router.value.currentRoute.value) {
+        updateRoute(router.value.currentRoute.value)
+      }
+    } catch (err) {
+      error.value = err.message
+    } finally {
+      isLoading.value = false
+    }
   }
 })
 
 const debounce = (func, delay) => {
-  let debounceTimer
   return function (...args) {
     const context = this
-    clearTimeout(debounceTimer)
-    debounceTimer = setTimeout(() => func.apply(context, args), delay)
+    clearTimeout(debounceTimer.value)
+    debounceTimer.value = setTimeout(() => func.apply(context, args), delay)
   }
 }
+
+// Function to layout Masonry and update grid
+const layoutMasonryAndUpdateGrid = () => {
+  nextTick(() => {
+    if (msnry) {
+      msnry.reloadItems()
+      msnry.layout()
+    }
+  })
+}
+
+// Watch for changes in your courses data
+watch(() => filteredCourses.value, layoutMasonryAndUpdateGrid)
+
+// Watch for changes in pagination
+watch(currentPage, layoutMasonryAndUpdateGrid)
 
 watch(
   [searchTerm, sortBy, selectedCourse, currentDomain],
@@ -366,6 +430,43 @@ watch(
 </script>
 
 <style>
+.FilterLink {
+  transition: all 0.2s ease-in-out;
+}
+
+.FilterLink.Selected:before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-right: 7px;
+  margin-left: -7px;
+  background: var(--tx-blue);
+  margin-bottom: -2px;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.2s ease-in-out;
+  transition: transform 1s all ease-in-out;
+}
+
+.FilterLink.Selected:before {
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.Gradient {
+  background: var(--gradients-tab-gradient, linear-gradient(180deg, #ebebeb 0%, #dcdcdc 100%));
+}
+
+input:active {
+  box-shadow: 0 0 0 2px var(--tx-blue);
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px var(--tx-blue);
+  outline: none;
+}
+
 .highlight {
   background-color: yellow;
 }
@@ -375,8 +476,17 @@ watch(
   transition: transform 0.3s ease;
 }
 
-.slide-up-enter {
+.slide-up-enter,
+.slide-up-enter-from {
   transform: translateY(100%);
+}
+
+.slide-up-enter-to {
+  transform: translateY(0);
+}
+
+.slide-up-leave-from {
+  transform: translateY(0);
 }
 
 .slide-up-leave-to {
