@@ -127,7 +127,7 @@
 }
 
 .h4-ibm-med {
-  font-family: 'IBM Plex Sans' Condensed;
+  font-family: 'IBM Plex Sans Condensed';
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -144,7 +144,8 @@
 
 /* END */
 
-p {
+p,
+.p-inter {
   font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;

@@ -20,9 +20,9 @@ export default {
         'tx-orange': '#ff6633',
         'tx-yellow': '#ffff00',
         charcoal: '#353037',
-        ' white': '#ffffff',
+        white: '#ffffff',
         'light-white': '#f9f9f9',
-        ' dull-white': '#cfcfcf',
+        'dull-white': '#cfcfcf',
         'bg-white': '#faf3f3',
         'dull-grey': '#848484',
         warning: '#cd4343',
@@ -36,6 +36,10 @@ export default {
       },
       content: {
         ting: 'url(../assets/filterlink-ting.svg)'
+      },
+      backgroundImage: {
+        'tx-highlight-gradient': 'linear-gradient(180deg, #ff6633 0%, #3631ff 100%)',
+        'tab-gradient': 'linear-gradient(180deg, #ebebeb 0%, #dcdcdc 100%)'
       }
     }
   },

@@ -4,6 +4,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+defineOptions({
+  name: 'LoadingSpinner'
+})
+</script>
+
 <style>
 .CatalogLoader {
   height: 103%;

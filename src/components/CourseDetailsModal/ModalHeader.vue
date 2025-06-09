@@ -1,8 +1,10 @@
 <template>
-  <div class="text-dull-grey py-[10px] bg-white border-b border-solid border-dull-grey px-[18px]">
+  <div
+    class="text-dull-grey py-[10px] bg-light-white border-b border-solid border-dull-grey px-[18px]"
+  >
     <div class="flex justify-between mx-auto max-w-[1215px]">
-      <div class="h2-ibm">Catalog > {{ selectedCourse.title }}</div>
-      <button @click="hideCourseDetails">
+      <div class="h2-ibm">{{ domain }} > {{ courseName }}</div>
+      <button @click="$emit('close')">
         <span>
           <svg
             width="24"
@@ -22,13 +24,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['selectedCourse'],
-  methods: {
-    hideCourseDetails() {
-      this.$emit('hideCourseDetails')
-    }
-  }
+<script setup lang="ts">
+interface ModalHeaderProps {
+  domain: string
+  courseName: string
 }
+
+withDefaults(defineProps<ModalHeaderProps>(), {
+  domain: 'domain',
+  courseName: 'courseName'
+})
+defineEmits<{ (e: 'close'): void }>()
 </script>

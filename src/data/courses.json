@@ -1,0 +1,3275 @@
+[
+  {
+    "id": "mastering-aci-cisco-data-center-revolution",
+    "shortCode": "ACI-MASTER",
+    "title": "Mastering ACI: Cisco's Data Center Revolution",
+    "subtitle": null,
+    "domain": "Data Center Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "CCNA or equivalent networking knowledge",
+      "Familiarity with data center fundamentals",
+      "Basic understanding of routing and switching protocols"
+    ],
+    "includedCourses": [],
+    "description": "The Cisco Application Centric Infrastructure (ACI) course at Techboxx is tailored to provide comprehensive knowledge and hands-on experience in configuring and managing Cisco's innovative data center architecture. ACI simplifies, optimizes, and accelerates the deployment and operations of modern data centers. This course aligns with Cisco's CCNP Data Center and CCIE Data Center certifications, making it ideal for IT professionals aiming to master ACI fundamentals and advanced features. Through a combination of theory, hands-on labs, and real-world scenarios, you will gain expertise in deploying, configuring, and troubleshooting ACI fabrics, policies, and integrations with third-party solutions.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Here's an overview:",
+        "coreConcepts": [
+          {
+            "title": "Introduction to Cisco ACI",
+            "details": "Basics of Cisco ACI architecture, its components, and the benefits it brings to modern data centers."
+          },
+          {
+            "title": "Policy Model and Application Profiles",
+            "details": "Understand the ACI policy model, tenants, and VRFs, and how to create application profiles and endpoint groups (EPGs)."
+          },
+          {
+            "title": "Configuring ACI Networking Features",
+            "details": "VLAN pools, contracts, filters, and configuring multicast in the ACI fabric."
+          },
+          {
+            "title": "Integrating ACI with External Networks",
+            "details": "Configure Layer 2/3 connections, integrate with legacy networks, & implement routing protocols like BGP and OSPF."
+          },
+          {
+            "title": "Advanced ACI Features",
+            "details": "Multi-Pod and Multi-Site architectures, Remote Leaf solutions, and using service graphs for traffic redirection."
+          },
+          {
+            "title": "Troubleshooting ACI Fabrics",
+            "details": "Learn troubleshooting methodologies, tools, and best practices to debug and maintain ACI fabric deployments."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "ACI Network Engineer",
+          "Data Center Architect",
+          "ACI Deployment Specialist",
+          "Network Automation Engineer",
+          "Infrastructure Solutions Architect",
+          "SDN Engineer (ACI Focus)",
+          "ACI Operations Specialist",
+          "Senior Data Center Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Virtual Devices",
+        "items": [
+          {
+            "title": "Cisco ACI Simulator",
+            "details": null
+          },
+          {
+            "title": "Cisco Cloud APIC",
+            "details": null
+          },
+          {
+            "title": "Virtualized APIC (vAPIC) instances",
+            "details": null
+          },
+          {
+            "title": "Virtual Cisco Nexus 9000v Switches (simulating leaf and spine nodes)",
+            "details": null
+          },
+          {
+            "title": "Third-party virtual appliances for ACI integrations",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of live instructor-led training",
+      "80+ hours of hands-on lab exercises designed around real-world scenarios",
+      "Comprehensive lab guides and ACI configuration templates",
+      "Industry-expert trainers with extensive Cisco data center experience",
+      "Round-the-clock support to answer your queries and resolve issues",
+      "Career mentorship, certification preparation, and mock tests",
+      "Access to Techboxx's exclusive learning community",
+      "Job assistance and referrals by leveraging our expanding industry network",
+      "Course completion certificate recognized by industry leaders"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "2 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2.5 months",
+        "sessionHours": "3-4 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "live instructor-led"
+      },
+      {
+        "mode": "Offline",
+        "details": "live instructor-led"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 29610,
+      "originalAmount": 45740,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Anyone seeking expertise in SDN (Software-Defined Networking) and Cisco ACI",
+      "Network engineers and architects working in data center environments",
+      "IT professionals pursuing CCNP Data Center and CCIE Data Center certifications",
+      "Organizations transitioning to a modern ACI-based data center infrastructure"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "ccnp-300-435-enauto",
+    "shortCode": "ENAUTO",
+    "title": "CCNP 300-435 ENAUTO (Implementing Automation for Cisco Enterprise Solutions)",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA or equivalent level of networking knowledge is required."],
+    "includedCourses": [],
+    "description": "As enterprise networks grow more complex, manual configuration becomes prone to errors and inefficiencies. The CCNP ENAUTO course teaches you how to automate repetitive tasks, reducing human error and freeing up valuable time for more strategic initiatives. Automating your network is no longer an option; it's a necessity to keep your operations running smoothly. You'll gain real-world experience with Cisco's DNA Center, vManage, Meraki, and other automation platforms, ensuring you're ready to implement solutions in actual enterprise environments.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The following highlights the topics in this course:",
+        "coreConcepts": [
+          {
+            "title": "Network Programmability Foundation",
+            "details": "Version control with Git, Python programming basics, and API styles like REST and RPC"
+          },
+          {
+            "title": "Automate APIs and Protocols",
+            "details": "Utilizing YANG models and comparing protocols like NETCONF and RESTCONF for automation"
+          },
+          {
+            "title": "Network Device Programmability",
+            "details": "Use of Python, Ansible, and RESTCONF for device configuration and telemetry setup"
+          },
+          {
+            "title": "Cisco DNA Center",
+            "details": "Automating and managing networks using Cisco DNA Center's APIs"
+          },
+          {
+            "title": "Cisco SD-WAN",
+            "details": "Automating Cisco SD-WAN solutions using vManage APIs"
+          },
+          {
+            "title": "Cisco Meraki",
+            "details": "Meraki automation with API integrations for network management and monitoring"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network automation engineer",
+          "DevNet engineer",
+          "Enterprise network engineer",
+          "Python developer (network focused)",
+          "Infrastructure automation engineer",
+          "NOC automation specialist",
+          "SDN engineer",
+          "Technical solutions engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Cisco DevNet Sandbox",
+            "details": null
+          },
+          {
+            "title": "Cisco DNA Center (DNAC)",
+            "details": null
+          },
+          {
+            "title": "RESTCONF/NETCONF",
+            "details": null
+          },
+          {
+            "title": "Cisco CSR1000v",
+            "details": null
+          },
+          {
+            "title": "Python, Postman, Ansible",
+            "details": null
+          },
+          {
+            "title": "Other tools",
+            "details": "Git, Docker, Linux, and VS Code"
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "55+ hours of dynamic instructor-led training",
+      "120+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP ENAUTO lab manual & guide (50+ labs & superlabs included)",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP ENAUTO resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 25150,
+      "originalAmount": 49775,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Individuals pursuing the Cisco Certified DevNet Professional certification, or those looking to enhance their qualifications with a focus on automation",
+      "Anyone looking to specialize in network automation and programmability, with a focus on automating tasks across various Cisco platforms",
+      "Engineers who want to make their networks more efficient, scalable, and easier to manage through automation",
+      "Individuals working in DevOps who need to integrate networking automation into continuous deployment and development environments"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-design-expert",
+    "shortCode": "CCDE",
+    "title": "Cisco Certified Design Expert",
+    "subtitle": null,
+    "domain": "Networking | Advanced Network Design",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "Deep understanding of routing and switching protocols",
+      "Strong knowledge of security and cloud domains",
+      "CCIE or 5+ years of experience is recommended"
+    ],
+    "includedCourses": [],
+    "description": "Master the art of network design with the Cisco Certified Design Expert (CCDE) certification, one of the highest credentials in the networking industry. Offered by Techboxx, this course equips senior networking professionals with the expertise to design scalable, secure, and innovative networks that align with business goals and industry demands. Covering advanced concepts, participants will learn to translate technical and business requirements into robust solutions for enterprise and service provider environments. Achieving the CCDE requires passing the Cisco CCDE v3.1 unified exam, a testament to your ability to craft cutting-edge network designs and strategies.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The CCDE v3.1 exam comprises five modules:",
+        "coreConcepts": [
+          {
+            "title": "Business Strategy Design",
+            "details": "Understand the impact of business strategies on network design, implementation, and optimization, considering methodologies like waterfall and agile."
+          },
+          {
+            "title": "Control, Data, Management Plane, and Operational Design",
+            "details": "Analyze end-to-end IP traffic flow and design data, control, and management plane technologies, including automation and software-defined architectures."
+          },
+          {
+            "title": "Network Design",
+            "details": "Develop resilient, scalable, and secure modular networks, addressing technical, operational, application, and business requirements, along with implementation and migration plans."
+          },
+          {
+            "title": "Service Design",
+            "details": "Design network services to support applications such as voice, video, IoT, and cloud solutions, ensuring compliance with regulatory standards and security considerations."
+          },
+          {
+            "title": "Security Design",
+            "details": "Integrate network security measures, including segmentation, access control, visibility, policy enforcement, and compliance with regulations, to protect data integrity and confidentiality."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Design Engineer",
+          "Network Architect",
+          "Senior Network Consultant",
+          "Senior Solutions Architect",
+          "Enterprise Network Engineer",
+          "Disaster Recovery Specialist"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Virtual Tools",
+        "items": [
+          {
+            "title": "EVE-NG (Emulated Virtual Environment Next Generation)",
+            "details": null
+          },
+          {
+            "title": "Cisco Modeling Labs (CML)",
+            "details": null
+          },
+          {
+            "title": "GNS3 (Graphical Network Simulator)",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Cloud-Based Lab Platforms",
+        "items": [
+          {
+            "title": "Cisco dCloud for accessing pre-configured topologies",
+            "details": null
+          },
+          {
+            "title": "AWS or Azure environments to simulate cloud-integration designs",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "120+ hours of live instructor-led training",
+      "200+ hours of hands-on practice",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "CCDE training resources and manuals",
+      "Round-the-clock support to answer your queries and resolve issues",
+      "Access to Techboxx's exclusive learning community",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "Not Available",
+        "sessionHours": null
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "6 months",
+        "sessionHours": "3 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "20 days",
+        "sessionHours": "5-6 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 65400,
+      "originalAmount": 120000,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Senior network engineers seeking advanced design expertise",
+      "Network architects aiming to align designs with business strategies",
+      "Professionals looking to achieve the prestigious Cisco CCDE certification"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "mastering-python-for-network-engineers",
+    "shortCode": "PYTHON-NETENG",
+    "title": "Mastering Python for Network Engineers",
+    "subtitle": null,
+    "domain": "Networking | Automation",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "CCNP or equivalent networking knowledge",
+      "Familiarity with Firewalls and VPNs",
+      "Familiarity with Routing and Switching protocols",
+      "Familiarity with IP Services"
+    ],
+    "includedCourses": [],
+    "description": "The Mastering Python for Network Engineers course at Techboxx is designed for network professionals who want to automate and streamline network management using Python. Combining core Python programming concepts with network automation, the course teaches you to automate repetitive tasks, configure network devices, and troubleshoot more efficiently. You'll gain hands-on experience using powerful Python libraries like Netmiko, Paramiko, and NAPALM for tasks such as device configuration, routing, switching, and VPN setup. This course is ideal for network engineers and IT professionals looking to enhance their productivity and network reliability through automation. By the end, you'll be equipped to write Python scripts that improve operational consistency and reduce manual intervention in network management.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Here's an overview:",
+        "coreConcepts": [
+          {
+            "title": "Programming Basics",
+            "details": "Foundational Python concepts needed for network automation, ensuring you have the necessary skills to write effective Python scripts."
+          },
+          {
+            "title": "Automating Basic Networking Tasks",
+            "details": "Using Python to automate common network tasks such as device configuration, backup, and basic communication protocols."
+          },
+          {
+            "title": "Routing Protocols",
+            "details": "Automate configurations for key routing protocols such as EIGRP, OSPF, and BGP using Python."
+          },
+          {
+            "title": "Switching",
+            "details": "Automating switch configurations, such as VLAN management, security protocols, and port configurations."
+          },
+          {
+            "title": "IP Services",
+            "details": "Automate common IP services configurations like HSRP, VRRP, and DHCP using Python scripts."
+          },
+          {
+            "title": "VPN Configurations",
+            "details": "Automate various VPN configurations, such as IPsec and DMVPN, using Python to ensure secure communications."
+          },
+          {
+            "title": "ASA Firewall",
+            "details": "Automate configurations on ASA firewalls, including NAT and ACLs for enhanced security."
+          },
+          {
+            "title": "MPLS Configurations",
+            "details": "Automate MPLS configurations and related protocols to optimize routing and traffic management."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Automation Engineer",
+          "Network Engineer",
+          "DevOps Engineer",
+          "Python Developer - Networking",
+          "Infrastructure Automation Engineer",
+          "Network Consultant - Automation",
+          "Network Operations Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Devices",
+        "items": [
+          {
+            "title": "Cisco Routers (ISR, 2900, 4000 series)",
+            "details": null
+          },
+          {
+            "title": "Cisco Switches (Catalyst 2960, 3650, 3750, 6500 series)",
+            "details": null
+          },
+          {
+            "title": "Cisco ASA Firewalls",
+            "details": null
+          },
+          {
+            "title": "Cisco Wireless Controllers",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Virtual Devices & Tools",
+        "items": [
+          {
+            "title": "Cisco VIRL (Virtual Internet Routing Lab)",
+            "details": null
+          },
+          {
+            "title": "Cisco Modeling Labs (CML)",
+            "details": null
+          },
+          {
+            "title": "Cisco CSR1000v (Cloud Services Router)",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Cisco Cloud-Based Devices/Services",
+        "items": [
+          {
+            "title": "Cisco Meraki Dashboard",
+            "details": null
+          },
+          {
+            "title": "Cisco Webex Teams for Network Automation",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of live instructor-led training",
+      "70+ hours of hands-on lab exercises designed to simulate real-world scenarios",
+      "Comprehensive Python scripts and templates for network automation tasks",
+      "Expert trainers with in-depth knowledge of Python programming and networking",
+      "Round-the-clock support to answer your queries and resolve issues",
+      "Access to Techboxx's exclusive learning community",
+      "Course completion certificate recognized by industry leaders"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2.5 months",
+        "sessionHours": "2 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "3 months",
+        "sessionHours": "3-4 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "live instructor-led"
+      },
+      {
+        "mode": "Offline",
+        "details": "live instructor-led"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 29020,
+      "originalAmount": 50490,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "IT professionals transitioning into network automation roles",
+      "Organizations seeking to enhance network management efficiency",
+      "Anyone interested in combining Python programming with networking expertise"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-networking-professional-data-center",
+    "shortCode": "CCNP-DC",
+    "title": "CCNP Data Center",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA and CCNP Enterprise level of knowledge is required."],
+    "includedCourses": [],
+    "description": "Techboxx brings you an industry-focused CCNP Data Center program that goes beyond theory. You'll configure multi-pod ACI fabrics, manage UCS compute pools, and deploy HyperFlex clusters in hands-on workshops. Dive into orchestration with Cisco NSO and develop custom automation routines in Python. Troubleshoot performance bottlenecks and secure east-west traffic with micro-segmentation. Complete capstone labs that simulate large-scale deployments and earn the skills to excel in any data center role.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The CCNP DC core paper (DCCOR), and one of the CCNP Data Center concentration papers.",
+        "coreConcepts": [
+          {
+            "title": "CCNP 350-601 DCCOR",
+            "details": "Master core Cisco Data Center technologies, optimizing network infrastructure for performance and scalability."
+          },
+          {
+            "title": "CCNP 300-610 DCID",
+            "details": "Learn to design robust, scalable Cisco data center networks that meet business needs and ensure security."
+          },
+          {
+            "title": "CCNP 300-615 DCIT",
+            "details": "Develop troubleshooting skills to quickly resolve data center issues and ensure smooth, uninterrupted operations."
+          },
+          {
+            "title": "CCNP 300-620 DCACI",
+            "details": "Implement Cisco's Application Centric Infrastructure (ACI) to create agile, automated, and secure data center solutions."
+          },
+          {
+            "title": "CCNP 300-630 DCACIA",
+            "details": "Advance your ACI skills to optimize, deploy, and troubleshoot high-performance data center networks."
+          },
+          {
+            "title": "CCNP 300-635 DCAUTO",
+            "details": "Automate Cisco data center operations using programming and scripting to improve efficiency and reduce manual effort."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Data Center Architect",
+          "Infrastructure Designer",
+          "Systems Engineer",
+          "Cloud Solutions Architect",
+          "Data Center Manager",
+          "Storage Engineer",
+          "Data Center Operations Manager",
+          "Automation Engineer",
+          "Data Center Security Specialist",
+          "Disaster Recovery Specialist",
+          "DevOps Engineer",
+          "IT Project Manager"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Cisco Nexus 9000 Series Switches",
+            "details": null
+          },
+          {
+            "title": "Cisco UCS B-Series Blade & C-Series Rack Servers",
+            "details": null
+          },
+          {
+            "title": "Cisco HyperFlex HX Data Platform",
+            "details": null
+          },
+          {
+            "title": "Cisco Application Centric Infrastructure (ACI) & ACI Simulator",
+            "details": null
+          },
+          {
+            "title": "Cisco DNA Center (Automation & Assurance)",
+            "details": null
+          },
+          {
+            "title": "Cisco Network Services Orchestrator (NSO)",
+            "details": null
+          },
+          {
+            "title": "Cisco Nexus Dashboard (Fabric Controller & Telemetry)",
+            "details": null
+          },
+          {
+            "title": "VMware ESXi / vSphere (Virtualized Server Environments)",
+            "details": null
+          },
+          {
+            "title": "Ansible & Python (Automation Scripting)",
+            "details": null
+          },
+          {
+            "title": "Cisco DevNet Sandbox for Data Center (Remote Lab Access)",
+            "details": null
+          },
+          {
+            "title": "Wireshark (Packet Capture & Analysis)",
+            "details": null
+          },
+          {
+            "title": "Hypervisor Management Tools (e.g., VMware vCenter)",
+            "details": null
+          },
+          {
+            "title": "Bash / PowerShell CLI (Server & Network Automation Interfaces)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "120+ hours of dynamic instructor-led training",
+      "150+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP Data Center lab manual & guide",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP DC resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [],
+    "trainingModes": [],
+    "trainingFee": null,
+    "whoIsThisCourseFor": [
+      "Experienced network professionals (CCNA-level or equivalent) seeking to specialize in data center technologies",
+      "Infrastructure architects and engineers responsible for designing, deploying, and maintaining enterprise data centers",
+      "Systems and storage administrators moving into converged infrastructure roles",
+      "Automation and DevOps practitioners who want to integrate network and server orchestration using Ansible, Python, and Cisco ACI",
+      "IT managers and consultants aiming to lead large-scale, multi-site data center projects",
+      "Anyone preparing for the Cisco CCNP Data Center certification and looking to gain hands-on expertise with Nexus, UCS, HyperFlex, and ACI environments"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-internetwork-expert-enterprise-infrastructure",
+    "shortCode": "CCIE-EI",
+    "title": "CCIE Enterprise Infrastructure",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "CCNA and CCNP Enterprise equivalent level of networking knowledge is required."
+    ],
+    "includedCourses": [],
+    "description": "Ready to join the top 1% of network professionals? Techboxx's CCIE Enterprise Infrastructure training immerses you in realistic network crises, sharpens your troubleshooting agility, and refines your design thinking. Guided by seasoned trainers, you'll learn to think on your feet, craft elegant solutions under time constraints, and communicate complex ideas clearly. This blend of intense practice, direct mentorship, and performance reviews primes you for exam success, and positions you as an indispensable asset in any large-scale IT team.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The CCIE Enterprise Infrastructure (EI) certification exam is structured into five modules, each focusing on a specific area of expertise:",
+        "coreConcepts": [
+          {
+            "title": "Network Infrastructure",
+            "details": "Advanced routing, switching, multicast, and QoS technologies to design, deploy, and troubleshoot modern enterprise networks."
+          },
+          {
+            "title": "Software-Defined Infrastructure",
+            "details": "Cisco SD-WAN, SD-Access, and programmable network concepts, including automation and orchestration."
+          },
+          {
+            "title": "Transport Technologies and Solutions",
+            "details": "MPLS, VPNs, Segment Routing, and other technologies for scalable and secure network transport solutions."
+          },
+          {
+            "title": "Infrastructure Security and Services",
+            "details": "Secure network design, firewalls, AAA, and critical infrastructure services like HSRP, DHCP, DNS, and NTP."
+          },
+          {
+            "title": "Infrastructure Automation and Programmability",
+            "details": "Network automation tools, APIs, Python scripting, and model-driven programmability for efficient network operations."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Architect",
+          "Senior Network Engineer",
+          "Network Consultant",
+          "Network Operations Center (NOC) Manager",
+          "Enterprise Network Manager",
+          "Senior IP Engineer",
+          "IT Project Manager",
+          "Infrastructure Solutions Architect",
+          "SD-WAN Engineer",
+          "Senior Network Automation Engineer",
+          "Network Integration Engineer",
+          "IT Director"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Devices",
+        "items": [
+          {
+            "title": "Cisco Routers",
+            "details": "ISR 4000 Series (Integrated Services Routers)"
+          },
+          {
+            "title": "Cisco Switches",
+            "details": "Catalyst 9000 Series (e.g., Catalyst 9300 or 9400)"
+          }
+        ]
+      },
+      {
+        "title": "Virtual Devices and Tools",
+        "items": [
+          {
+            "title": "Cisco vEdge Cloud Routers (for SD-WAN)",
+            "details": null
+          },
+          {
+            "title": "Cisco CSR 1000v (Cloud Services Router)",
+            "details": null
+          },
+          {
+            "title": "Cisco Catalyst 8000V Edge Software",
+            "details": null
+          },
+          {
+            "title": "Cisco ISE (Identity Services Engine)",
+            "details": null
+          },
+          {
+            "title": "Cisco DNA Center (DNAC)",
+            "details": null
+          },
+          {
+            "title": "Cisco vManage",
+            "details": null
+          },
+          {
+            "title": "Cisco vBond and vSmart Controllers",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Automation and Programmability Tools",
+        "items": [
+          {
+            "title": "Python",
+            "details": null
+          },
+          {
+            "title": "Ansible",
+            "details": null
+          },
+          {
+            "title": "REST APIs",
+            "details": null
+          },
+          {
+            "title": "Cisco DevNet Sandbox",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Supporting Tools",
+        "items": [
+          {
+            "title": "Virtual Machines (VMs)",
+            "details": null
+          },
+          {
+            "title": "Traffic Generators (e.g., iPerf)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "160+ hours of live instructor-led training",
+      "300+ hours of hands-on lab practice, including design, configuration, and troubleshooting tasks, modelled on real-world network scenarios",
+      "CCIE Enterprise Infrastructure lab manual & guide, including super labs",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCIE EI resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "6 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "6 months",
+        "sessionHours": "3-4 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "20 days",
+        "sessionHours": "6 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 94075,
+      "originalAmount": 175500,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Ambitious freshers and recent graduates with strong CCNP-level knowledge who want to fast-track into enterprise networking roles",
+      "Engineers aiming to earn the prestigious CCIE Enterprise Infrastructure certification and secure top-tier network positions",
+      "Senior network engineers and architects looking to deepen their expertise in large-scale environments",
+      "Automation and DevOps practitioners eager to integrate Python, Ansible, and Cisco DNA Center into their workflows",
+      "IT leaders and consultants responsible for designing, deploying, and troubleshooting mission-critical campus and WAN fabrics"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-networking-professional-enterprise",
+    "shortCode": "CCNP-EN",
+    "title": "CCNP Enterprise",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA level of networking knowledge is required."],
+    "includedCourses": [],
+    "description": "CCNP Enterprise at Techboxx is a guided, high-impact program that makes you confident in real enterprise networks. You'll dive deep into advanced routing, switching, security, and automation---step by step. We skip the fluff, go deep into the real stuff, and help you build confidence to work in big network environments. We focus on clarity, and job readiness. It's for learners who want to do more, earn more, and grow faster.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  To earn this certification, you'll need to pass two exams: a core exam (ENCOR), and one of the CCNP Enterprise concentration exams",
+        "coreConcepts": [
+          {
+            "title": "ENCOR",
+            "details": "You'll build a strong foundation in core networking topics like routing, switching, wireless, and security. By the end, you'll know how to set up, manage, and troubleshoot modern enterprise networks."
+          },
+          {
+            "title": "ENARSI",
+            "details": "This course dives into advanced routing protocols like OSPF, EIGRP, and BGP. You'll also learn how to troubleshoot and secure your network's routing infrastructure effectively."
+          },
+          {
+            "title": "ENSDWI",
+            "details": "Learn how to implement and manage Cisco SD-WAN solutions to ensure secure and efficient connectivity. It's all about simplifying network management while boosting performance."
+          },
+          {
+            "title": "ENSLD",
+            "details": "This course focuses on designing enterprise networks that are secure, scalable, and reliable. You'll learn practical strategies for redundancy, QoS, and virtualization."
+          },
+          {
+            "title": "ENAUTO",
+            "details": "Get hands-on with network automation using Python, APIs, and Cisco tools. You'll learn how to automate repetitive tasks and manage networks more efficiently."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Engineer",
+          "Senior Network Engineer",
+          "Network Architect",
+          "Infrastructure Engineer",
+          "Wireless Network Engineer",
+          "Cloud Network Engineer",
+          "Network Automation Engineer",
+          "Solutions Architect",
+          "Data Center Engineer",
+          "NOC Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical devices",
+        "items": [
+          {
+            "title": "Routers",
+            "details": "2811,2821, 2901, 2911 series"
+          },
+          {
+            "title": "Switches",
+            "details": "2960, 3750G series"
+          },
+          {
+            "title": "Wireless Access Point",
+            "details": "1852I-D-K9 series"
+          }
+        ]
+      },
+      {
+        "title": "Virtual Tools",
+        "items": [
+          {
+            "title": "GNS3 Simulator",
+            "details": null
+          },
+          {
+            "title": "EVEng",
+            "details": null
+          },
+          {
+            "title": "Wireshark",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [],
+    "deliveryOptions": [],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 34270,
+      "originalAmount": 55000,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Network professionals who have completed CCNA and want to advance their enterprise networking expertise",
+      "Aspiring professionals looking to build careers in Networking, Cybersecurity, Cloud Computing, or Network Automation, as this course provides essential foundational knowledge",
+      "Career-focused individuals targeting positions such as Network Engineer, Solutions Architect, or Infrastructure Specialist",
+      "Certification seekers preparing for the CCNP Enterprise exam and practical network implementation scenarios",
+      "Career transitioners with fundamental networking knowledge seeking to advance to mid-to-senior level network positions"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-internetwork-expert-data-center",
+    "shortCode": "CCIE-DC",
+    "title": "CCIE Data Center",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNP Data Center level of knowledge."],
+    "includedCourses": [],
+    "description": "Master the art of large-scale computing with Techboxx's CCIE Data Center program. Our focused labs and expert guidance help you think like a data center architect: anticipating issues, automating solutions, and delivering resilient designs. You'll navigate real infrastructure challenges, refine your scripting and automation skills, and build the leadership mindset to drive major projects. You'll walk away exam-ready and truly industry-ready.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The CCIE Data Center exam consists of eight modules that assess DC expertise in different scenarios:",
+        "coreConcepts": [
+          {
+            "title": "Data Center Architecture & Foundations",
+            "details": "Spine-leaf designs and virtualization fundamentals that power modern data centers."
+          },
+          {
+            "title": "Cisco ACI Fundamentals",
+            "details": "Intent-based policies and endpoint groups to automate fabric operations."
+          },
+          {
+            "title": "Nexus Switching & Fabric Deployment",
+            "details": "Build and scale high-performance Nexus spine-leaf topologies."
+          },
+          {
+            "title": "UCS Compute & Server Virtualization",
+            "details": "Configure UCS servers and service profiles for automated compute provisioning."
+          },
+          {
+            "title": "HyperFlex & Storage Integration",
+            "details": "Deploy HyperFlex clusters and manage distributed storage for hyper converged environments."
+          },
+          {
+            "title": "Automation & Programmability",
+            "details": "Automate workflows with Python, Ansible, and Cisco DevNet APIs."
+          },
+          {
+            "title": "Multi-Site & High Availability",
+            "details": "Design multi-pod/multi-site ACI fabrics and implement disaster-recovery strategies."
+          },
+          {
+            "title": "Advanced Troubleshooting & Exam Prep",
+            "details": "Tackle timed lab scenarios and master exam techniques for CCIE success."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Data Center Architect",
+          "Senior Data Center Engineer",
+          "Cloud Infrastructure Engineer",
+          "Technical Consultant",
+          "IT Project Manager",
+          "Solutions Architect",
+          "Data Center Operations Manager",
+          "Data Center Security Specialist",
+          "Capacity Planner",
+          "Network Automation Specialist",
+          "Virtualization Engineer",
+          "Storage Solutions Engineer",
+          "Network Operations Center (NOC) Manager",
+          "Disaster Recovery Specialist"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Equipment",
+        "items": [
+          {
+            "title": "Cisco Nexus 9000 Series Switches (Leaf-Spine Fabric)",
+            "details": null
+          },
+          {
+            "title": "Cisco UCS B-Series Blade & C-Series Rack Servers (UCS Manager)",
+            "details": null
+          },
+          {
+            "title": "Cisco HyperFlex HX Data Platform (Hyperconverged Storage & Compute)",
+            "details": null
+          },
+          {
+            "title": "Cisco Application Centric Infrastructure (ACI) Hardware (APIC Controllers & Leaf/Spine Switches)",
+            "details": null
+          },
+          {
+            "title": "Cisco MDS 9000 Series Storage Switches (Fibre Channel SAN)",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Virtual & Emulated Environments",
+        "items": [
+          {
+            "title": "Cisco ACI Simulator (Policy-Driven Fabric Emulation)",
+            "details": null
+          },
+          {
+            "title": "Cisco UCS Platform Emulator (Virtual UCS Manager)",
+            "details": null
+          },
+          {
+            "title": "HyperFlex Connect VM (Virtual HyperFlex Management)",
+            "details": null
+          },
+          {
+            "title": "Cisco NX-OSv & NX-OSv 9000 Images (VIRL/CML/Packet Tracer)",
+            "details": null
+          },
+          {
+            "title": "Cisco ACI Multi-Site Simulator (Virtual Multi-Pod/Multi-Site Fabric)",
+            "details": null
+          },
+          {
+            "title": "DevNet Sandbox for Data Center (Cloud-Hosted Lab Access)",
+            "details": null
+          },
+          {
+            "title": "VMware ESXi / vSphere (Virtual Server Infrastructure)",
+            "details": null
+          },
+          {
+            "title": "Ansible & Python Development Environment (Automation & Scripting)",
+            "details": null
+          },
+          {
+            "title": "Wireshark (Packet Capture & Analysis)",
+            "details": null
+          },
+          {
+            "title": "Cisco DevNet Code Exchange (APIs & Sample Scripts)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "160+ hours of live instructor-led training",
+      "300+ hours of hands-on practice",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCIE DC resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "6 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "6 months",
+        "sessionHours": "3-4 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "20 days",
+        "sessionHours": "6 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 131000,
+      "originalAmount": 235600,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Experienced Network Engineers looking to specialize in advanced data center technologies and design",
+      "System & Infrastructure Architects responsible for building scalable, resilient enterprise IT environments",
+      "UCS & ACI Professionals who want to deepen their hands-on expertise and move into senior roles",
+      "Automation & DevOps Engineers aiming to integrate network, compute, and storage automation using Ansible, Python, and APIs",
+      "IT Consultants & Solution Designers managing hybrid and multi-site data center deployments",
+      "CCNP Data Center Certified Professionals preparing to take the next step toward CCIE certification",
+      "Ambitious Freshers or Career Switchers (with a strong foundation in networking and servers) ready to commit to mastering enterprise-grade data center skills and earning one of Cisco's most prestigious certifications"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "ccnp-350-401-encor",
+    "shortCode": "ENCOR",
+    "title": "CCNP 350-401 ENCOR (Implementing Cisco Enterprise Network Core Technologies)",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA or equivalent level of networking knowledge is required."],
+    "includedCourses": [],
+    "description": "If you're looking to advance your networking career and stay ahead in the rapidly evolving tech landscape, the CCNP ENCOR 350-401 course offers the perfect solution. From configuring and troubleshooting complex enterprise networks to implementing advanced solutions like SD-WAN and network automation, this course covers the essential networking skills you need. This course is a core requirement for the CCNP Enterprise and prepares you for advanced certifications like CCIE Enterprise Infrastructure.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The following highlights the topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Architecture",
+            "details": "Enterprise network design models and how to implement modern architectures like SD-WAN and SD-Access"
+          },
+          {
+            "title": "Virtualization",
+            "details": "Network virtualization techniques, including VPNs, GRE tunnels, and LISP"
+          },
+          {
+            "title": "Infrastructure",
+            "details": "Master Layer 2 and Layer 3 technologies, including VLANs, OSPF, BGP, and network services like SNMP and IP SLA"
+          },
+          {
+            "title": "Network Assurance",
+            "details": "Network visibility, proactive monitoring, and troubleshooting with tools like Cisco DNA Center"
+          },
+          {
+            "title": "Security",
+            "details": "Implement robust enterprise security measures, including AAA, VPNs, and device hardening practices"
+          },
+          {
+            "title": "Automation",
+            "details": "Network automation through programmability with Python, NETCONF, RESTCONF, and APIs in Cisco DNA Center and vManage"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Engineer",
+          "Senior Network Engineer",
+          "Network Architect",
+          "Infrastructure Engineer",
+          "Cloud Network Engineer",
+          "Network Automation Engineer",
+          "Solutions Architect",
+          "NOC Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Routers",
+            "details": "2811, 2821, 2901, 2911 series"
+          },
+          {
+            "title": "Switches",
+            "details": "2960, 3750G, 3850 series"
+          },
+          {
+            "title": "Wireless Access Point",
+            "details": "1852I-D-K9 series"
+          },
+          {
+            "title": "GNS3 Simulator",
+            "details": null
+          },
+          {
+            "title": "EVEng",
+            "details": null
+          },
+          {
+            "title": "Wireshark",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of dynamic instructor-led training",
+      "140+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP ENCOR lab manual & guide (70+ labs & superlabs included)",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP ENCOR resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 25210,
+      "originalAmount": 45190,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "CCNA trained individuals -- The next step after CCNA for career advancement",
+      "CCIE Candidates -- Serves as the core exam for the CCIE EI track",
+      "Security-Conscious Engineers -- who want to integrate network security into enterprise setups",
+      "Cloud & SDN Enthusiasts -- transitioning to software-defined and cloud networks",
+      "Automation Learners -- like Python, APIs, and network programmability",
+      "Network Engineers -- who want to manage and scale enterprise-level networks",
+      "Aspirants for Senior Roles -- like Senior Engineer or Network Architect"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "bgp-mpls-isis-essential-to-expert",
+    "shortCode": "BGP-MPLS-IS-IS",
+    "title": "BGP, MPLS & IS-IS: Essential to Expert",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNP level of routing knowledge is required."],
+    "includedCourses": [],
+    "description": "Take your networking skills to the next level with Techboxx's BGP, MPLS & IS-IS: Essential to Expert course. Designed for those who want to understand and implement advanced networking protocols, this course covers BGP for internet routing, MPLS for traffic management, and IS-IS for service provider environments. This course will teach you how to design, implement, and troubleshoot networks using these critical protocols. By the end, you'll feel confident handling enterprise and service provider networks, and ready to apply your knowledge in complex environments. Start mastering these vital networking skills today and take the next step in your networking career!",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Here's an overview:",
+        "coreConcepts": [
+          {
+            "title": "BGP",
+            "details": "IBGP vs EBGP, BGP Attributes, Peering & Neighbor Relationships, Path Selection, Route Filtering & Policy Implementation, Security, Route Aggregation, Confederations & Route Reflectors, Authentication, Route Filtration, BGP for MPLS Integration, Scalability & Optimization"
+          },
+          {
+            "title": "MPLS",
+            "details": "Architecture, VPNs, Traffic Engineering, QoS Implementation, Security, MPLS with BGP for VPN Routing, MPLS in Service Provider Networks, Label Distribution, Protocols, Design and Scalability Techniques, Troubleshooting"
+          },
+          {
+            "title": "IS-IS",
+            "details": "Protocol Basics, Configuration, Level 1 (Intra-area) and Level 2 (Inter-area) Routing, Area Design and Scalability, IS-IS Integration with MPLS, Authentication, Troubleshooting, Performance Optimization"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Service Provider Network Engineer",
+          "Core Network Engineer",
+          "IP/MPLS Network Engineer",
+          "BGP/MPLS Design Engineer",
+          "Network Operations Center (NOC) Engineer",
+          "ISP Infrastructure Engineer",
+          "Backbone Network Engineer",
+          "Network Consultant -- Service Provider/Enterprise",
+          "TAC Engineer",
+          "Enterprise Network Architect",
+          "Network Implementation Engineer -- WAN/MPLS",
+          "Network Automation Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Devices",
+        "items": [
+          {
+            "title": "Cisco ISR & ASR Routers",
+            "details": null
+          },
+          {
+            "title": "Cisco Catalyst Switches",
+            "details": null
+          },
+          {
+            "title": "Server for hosting software emulation programs",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Key Software and Tools",
+        "items": [
+          {
+            "title": "Cisco CSR 1000V (Virtual Router)",
+            "details": null
+          },
+          {
+            "title": "Cisco vIOS (Virtual IOS Router)",
+            "details": null
+          },
+          {
+            "title": "EVE-NG, GNS3 / Cisco VIRL (for virtual network simulation)",
+            "details": null
+          },
+          {
+            "title": "Cisco vEdge Routers (Virtualized Routers for MPLS/BGP configurations)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of live instructor-led training",
+      "80+ hours of hands-on lab practice",
+      "BGP, MPLS & IS-IS: Essential to Expert lab manual & guide",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Round-the-clock support to answer your queries and resolve issues",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP SP resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "2 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "3-4 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "live instructor-led"
+      },
+      {
+        "mode": "Offline",
+        "details": "live instructor-led"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 25160,
+      "originalAmount": 38550,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Learners preparing for certifications like CCNP or CCIE",
+      "Individuals aiming to strengthen their skills in core network protocols for data center and service provider environments",
+      "Network architects and designers who want to enhance their expertise in scalable, enterprise-level networks",
+      "Professionals working in large-scale networks, cloud environments, or ISP networks who need to understand advanced routing protocols"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "ccnp-300-415-ensdwi",
+    "shortCode": "ENSDWI",
+    "title": "CCNP 300-415 ENSDWI (Implementing Cisco SD-WAN Solutions)",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA or equivalent level of networking knowledge is required."],
+    "includedCourses": [],
+    "description": "In today's fast-paced digital landscape, businesses are increasingly adopting SD-WAN solutions to optimize their network performance. The CCNP 300-415 ENSDWI course equips you with the skills to design, implement, and manage Cisco SD-WAN solutions, making you a valuable asset in any organization. This course is not just a credential; it's a testament to your commitment to staying relevant in the ever-evolving field of networking.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The following highlights the topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "SD-WAN Architecture",
+            "details": "Overall structure of Cisco SD-WAN, including components like vManage, vSmart, and vBond"
+          },
+          {
+            "title": "Controller Deployment",
+            "details": "Deploy and configure SD-WAN controllers, ensuring secure and efficient management of the WAN"
+          },
+          {
+            "title": "Edge Router Deployment",
+            "details": "Deploy physical and virtual routers (cEdge and vEdge) in the SD-WAN environment"
+          },
+          {
+            "title": "Policies",
+            "details": "Create and manage application-aware routing and data policies for efficient traffic management"
+          },
+          {
+            "title": "Security",
+            "details": "Security implementations within SD-WAN, including integrated firewalls and intrusion prevention systems"
+          },
+          {
+            "title": "Quality of Service (QoS)",
+            "details": "Configure QoS settings to optimize network performance and application delivery"
+          },
+          {
+            "title": "Multicast",
+            "details": "Implement multicast routing within the SD-WAN architecture"
+          },
+          {
+            "title": "Management and Operations",
+            "details": "Ongoing management, monitoring, and operational tasks necessary for maintaining a robust SD-WAN deployment"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "SD-WAN engineer",
+          "Network implementation engineer",
+          "Enterprise WAN specialist",
+          "Network solutions architect",
+          "Technical consulting engineer",
+          "WAN optimization specialist",
+          "Infrastructure engineer",
+          "Managed services engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Devices",
+        "items": [
+          {
+            "title": "Cisco SD-WAN Edge Routers",
+            "details": null
+          },
+          {
+            "title": "Cisco Integrated Services Routers",
+            "details": null
+          },
+          {
+            "title": "Cisco Catalyst Switches",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Virtual Devices",
+        "items": [
+          {
+            "title": "Cisco SD-WAN vManage",
+            "details": null
+          },
+          {
+            "title": "Cisco SD-WAN vBond",
+            "details": null
+          },
+          {
+            "title": "Cisco SD-WAN vSmart",
+            "details": null
+          },
+          {
+            "title": "Cisco Cloud OnRamp (Virtual Appliances)",
+            "details": null
+          },
+          {
+            "title": "Cisco vEdge Routers (Virtualized SD-WAN Edge Routers)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of dynamic instructor-led training",
+      "120+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP ENSDWI lab manual & guide (55+ labs & superlabs included)",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP ENSDWI resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": "Fast Track",
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 25055,
+      "originalAmount": 47990,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Individuals pursuing their CCNP Enterprise or CCIE EI",
+      "Individuals who want to expand their expertise in SD-WAN",
+      "Anyone who is looking to advance to specialized roles within networking",
+      "Anyone in the IT field looking to specialize in technologies involving WAN optimization, security, and cloud integration",
+      "Businesses looking to upskill their teams in SD-WAN to improve network efficiency and security"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-networking-professional-service-provider",
+    "shortCode": "CCNP-SP",
+    "title": "CCNP Service Provider",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA"],
+    "includedCourses": [],
+    "description": "Service providers run the world's networks and connect millions by providing internet backbone services spanning across cities and countries. Techboxx's CCNP SP training helps you build specialized skills to design, deploy, secure, and troubleshoot large-scale carrier networks that make modern communication possible. Whether you're aiming for roles in ISPs, telecom or enterprise WAN teams, this course equips you with skills that will be in demand everywhere. Get trained, get recognized, and get ahead.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  To earn this certification, you'll need to pass two exams: a core exam (SPCOR), and one of the CCNP Service Provider concentration exams.",
+        "coreConcepts": [
+          {
+            "title": "CCNP 350-501 SPCOR",
+            "details": "Learn the key technologies that keep service provider networks running, like automation, security, and QoS. This course gives you the skills to build and manage networks that scale."
+          },
+          {
+            "title": "CCNP 300-510 SPRI",
+            "details": "Take your routing expertise to the next level with advanced protocols like MPLS and segment routing. You'll learn how to optimize and troubleshoot complex service provider networks."
+          },
+          {
+            "title": "CCNP 300-515 SPVI",
+            "details": "Become an expert in delivering secure and reliable VPN services. This course teaches you how to implement MPLS L3VPN, L2VPN, and other technologies to support enterprise connectivity."
+          },
+          {
+            "title": "CCNP 300-540 SPCNI",
+            "details": "Learn how to design and set up modern cloud-based networks for service providers. With a focus on SDN and NFV, you'll gain the skills to tackle today's cloud networking challenges."
+          },
+          {
+            "title": "CCNP 300-535 SPAUTO",
+            "details": "Automate and streamline service provider operations with tools like Python and APIs. This course helps you save time and make networks more efficient and reliable."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Engineer",
+          "Network Automation Engineer",
+          "Service Provider Solutions Architect",
+          "Service Provider Network Consultant",
+          "Senior Network Engineer",
+          "Service Provider Operations Engineer",
+          "Network Security Engineer",
+          "Telecom Network Engineer",
+          "Senior IP Engineer",
+          "Infrastructure Network Engineer",
+          "Network Infrastructure Specialist"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Routers and switches running Cisco IOS XE - Cisco Catalyst 9000 series",
+            "details": null
+          },
+          {
+            "title": "Cisco DNA Center",
+            "details": null
+          },
+          {
+            "title": "Cisco NSO (Network Services Orchestrator)",
+            "details": null
+          },
+          {
+            "title": "Cisco DevNet Sandbox",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "120+ hours of dynamic instructor-led training",
+      "150+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP SP lab manual & guide (100+ labs & superlabs included)",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP SP resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "3 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "4 months",
+        "sessionHours": "3 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "5-6 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 41750,
+      "originalAmount": 65900,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Network engineers and architects looking to specialize in service-provider and carrier-grade infrastructures.",
+      "ISP and telco professionals responsible for MPLS, BGP, QoS, and large-scale WAN deployments.",
+      "CCNA trained or equivalent networking professionals ready to advance into SP roles.",
+      "Engineers tasked with designing, operating, or troubleshooting ISP backbones and VPN services.",
+      "IT teams in enterprises running their own carrier-style networks or managing global WANs.",
+      "Anyone aiming to clear the CCNP Service Provider exam and step into high-impact telecom or networking careers."
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-network-associate",
+    "shortCode": "CCNA",
+    "title": "Cisco Certified Network Associate",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["No prerequisites. No prior knowledge in IT or networking is required."],
+    "includedCourses": [],
+    "description": "Want to work in networking, cybersecurity, or cloud computing? Start with Techboxx's high-intensity CCNA certification training program. From mastering networking fundamentals to unlocking the secrets of automation and security, our course equips you with the skills to manage and optimise the most advanced networks. With focus on hands-on labs, real-world applications and expert mentorship, you'll be confident, job-ready, and interview-prepared.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The following highlights the modules covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Network Fundamentals",
+            "details": "Understand basic networking concepts, including the OSI model, IP addressing, and Ethernet technologies."
+          },
+          {
+            "title": "Network Access",
+            "details": "Learn about switching concepts, VLANs, trunking, and wireless networking principles."
+          },
+          {
+            "title": "IP Connectivity",
+            "details": "Explore routing concepts, static and dynamic routing (EIGRP, OSPF), and inter-VLAN routing."
+          },
+          {
+            "title": "IP Services",
+            "details": "Configure and verify network services like NAT, DHCP, NTP, HSRP and DNS."
+          },
+          {
+            "title": "Security Fundamentals",
+            "details": "Gain insights into network security principles, access control lists (ACLs), and secure device access."
+          },
+          {
+            "title": "Automation and Programmability",
+            "details": "Introduction to network automation, APIs, and the basics of programmability."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Engineer",
+          "Network Support Engineer",
+          "Network Administrator",
+          "Technical Support Engineer (TAC Engineer)",
+          "NOC (Network Operations Center) Engineer",
+          "Systems Engineer",
+          "IT Engineer",
+          "Network Analyst",
+          "Infrastructure Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical devices",
+        "items": [
+          {
+            "title": "Routers",
+            "details": "2811,2821, 2901, 2911 series"
+          },
+          {
+            "title": "Switches",
+            "details": "2960, 3750, 3750G series"
+          },
+          {
+            "title": "Wireless Access Point",
+            "details": "1852I-D-K9 series"
+          }
+        ]
+      },
+      {
+        "title": "Virtual Tools",
+        "items": [
+          {
+            "title": "Packet Tracer & GNS3",
+            "details": "Network simulation platforms"
+          },
+          {
+            "title": "Real-time labs",
+            "details": "For practical networking configurations"
+          },
+          {
+            "title": "Wireshark",
+            "details": "Network protocol analysis"
+          },
+          {
+            "title": "Linux/Windows VMs",
+            "details": "For real-world troubleshooting practice"
+          },
+          {
+            "title": "EVE-NG",
+            "details": "Emulated Virtual Environment Next Generation"
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of dynamic instructor-led training",
+      "100+ hours in hands-on labs, modelled on real-world network scenarios.",
+      "CCNA lab manual & guide (60+ labs & superlabs included).",
+      "Training by certified network and security experts with real-world corporate experience.",
+      "Personalized mentorship and career guidance.",
+      "Access to Techboxx's learning community and CCNA resources.",
+      "Resume and interview coaching.",
+      "Course completion certificate."
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": null
+      },
+      {
+        "mode": "Offline classroom",
+        "details": null
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 10000,
+      "originalAmount": 18950,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "College students or graduates trying to enter the tech field",
+      "Anyone who wants to build a career in the Networking industry",
+      "Anyone who wants to build a career in Cybersecurity, Cloud or Automation. This course lays a strong foundation and acts as a prerequisite for these domains.",
+      "Beginners or college/university students that belong to any academic background.",
+      "IT or non-IT professionals, who want to start a career in Networking, Security or Cloud."
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cisco-certified-internetwork-expert-service-provider",
+    "shortCode": "CCIE-SP",
+    "title": "CCIE Service Provider",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "CCNA and CCNP SP trained or equivalent level of networking knowledge is required."
+    ],
+    "includedCourses": [],
+    "description": "Ready to solve the toughest carrier network puzzles? Techboxx's CCIE Service Provider course pairs you with industry veterans for deep-dive lab sessions and exam-style drills. You'll develop tactical troubleshooting abilities, strategic planning skills, and the poise to handle real-world outages: : all while preparing thoroughly for your CCIE lab to secure your place among the world's top network professionals.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The CCIE Service Provider (SP) v5.1 exam is divided into six modules, covering key technologies in service provider networks. Here's a brief overview:",
+        "coreConcepts": [
+          {
+            "title": "Core Routing",
+            "details": "Focuses on advanced BGP, OSPF, and IS-IS protocols for large-scale service provider routing architectures and inter-AS operations."
+          },
+          {
+            "title": "Service Provider Architecture and Services",
+            "details": "Covers MPLS, L2/L3 VPNs, Segment Routing, and multicast technologies for scalable and secure service provider solutions."
+          },
+          {
+            "title": "Access and Aggregation",
+            "details": "Addresses Ethernet, broadband, and optical network technologies used in access and aggregation layers of SP networks."
+          },
+          {
+            "title": "High Availability and Fast Convergence",
+            "details": "Explores technologies like MPLS-TE, FRR, and network resilience techniques to ensure reliability and minimal downtime."
+          },
+          {
+            "title": "Infrastructure Security",
+            "details": "Focuses on SP-specific security mechanisms like RTBH, uRPF, BGP Flowspec, and AAA to protect the infrastructure."
+          },
+          {
+            "title": "Network Automation and Assurance",
+            "details": "Emphasizes programmability, telemetry, Python scripting, and tools like NetConf/RestConf for automating SP network operations."
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Engineer",
+          "Network Automation Engineer",
+          "Service Provider Solutions Architect",
+          "Service Provider Network Consultant",
+          "Senior Network Engineer",
+          "Service Provider Operations Engineer",
+          "Network Security Engineer",
+          "Telecom Network Engineer",
+          "Senior IP Engineer",
+          "Infrastructure Network Engineer",
+          "Network Infrastructure Specialist"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Devices",
+        "items": [
+          {
+            "title": "Cisco NCS 5500 Series Routers (core and edge platforms)",
+            "details": null
+          },
+          {
+            "title": "Cisco ASR 1000 Series Routers (aggregation and edge services)",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Virtual Devices and Platforms",
+        "items": [
+          {
+            "title": "Cisco IOS XR for routing and MPLS functionality.",
+            "details": null
+          },
+          {
+            "title": "Cisco IOS XE Virtual (CSR 1000v) for network edge and service configurations.",
+            "details": null
+          },
+          {
+            "title": "Cisco Nexus 9000v for data center interconnection scenarios in SP networks.",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Key Controllers and Orchestration Tools",
+        "items": [
+          {
+            "title": "Cisco NSO (Network Services Orchestrator)",
+            "details": null
+          },
+          {
+            "title": "Telemetry Tools",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Automation and Programmability Tools",
+        "items": [
+          {
+            "title": "Python and Ansible for network automation, scripting, and configuration.",
+            "details": null
+          },
+          {
+            "title": "YANG Models used with NETCONF/RESTCONF for programmability.",
+            "details": null
+          },
+          {
+            "title": "Cisco DevNet Tools for practicing automation and testing APIs.",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Traffic Generators and Test Tools",
+        "items": [
+          {
+            "title": "iPerf and Scapy for traffic generation and network performance testing.",
+            "details": null
+          },
+          {
+            "title": "Wireshark for packet analysis and troubleshooting.",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "160+ hours of live instructor-led training for in-depth theoretical coverage and module explanations.",
+      "300+ hours of hands-on lab practice, including design, configuration, and troubleshooting tasks, modelled on real-world network scenarios.",
+      "CCIE Service Provider lab manual & guide",
+      "Industry-expert trainers and professionals, with 15+ years of global experience.",
+      "Personalized mentorship and career guidance.",
+      "Both real-world and certification-focused preparation, including mock tests.",
+      "Access to Techboxx's learning community and CCIE SP resources.",
+      "Course completion certificate."
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "6 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "6 months",
+        "sessionHours": "3-4 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "20 days",
+        "sessionHours": "6 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 91479,
+      "originalAmount": 175900,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Recent graduates and ambitious freshers with solid networking fundamentals seeking to accelerate their careers in service provider environments",
+      "Network engineers and architects looking to expand their expertise in carrier-grade network infrastructures",
+      "ISP and telecom professionals managing large-scale WAN design, deployment, and troubleshooting",
+      "Automation and DevOps specialists interested in implementing Python, Ansible, and network orchestration tools in service provider workflows",
+      "IT leaders and consultants focused on maintaining high availability, performance, and SLAs in service provider networks",
+      "Professionals preparing for CCIE Service Provider certification who want practical experience with real-world carrier network challenges"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "ccnp-300-410-enarsi",
+    "shortCode": "ENARSI",
+    "title": "CCNP 300-410 ENARSI (Implementing Cisco Enterprise Advanced Routing and Services)",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA or equivalent level of networking knowledge is required."],
+    "includedCourses": [],
+    "description": "In a rapidly evolving tech landscape, staying ahead is crucial. The CCNP 300-410 ENARSI course empowers you with the latest routing technologies and security best practices, ensuring you're ready for the challenges of modern enterprise environments. This course covers critical areas like infrastructure security, advanced VPN services, and high availability solutions. With this certification training, you'll demonstrate your expertise to potential employers and increase your earning potential in the competitive IT job market.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The following highlights the topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Layer 3 Technologies",
+            "details": "Advanced routing protocols such as EIGRP, OSPF, and BGP, focusing on configuration, troubleshooting, and route manipulation"
+          },
+          {
+            "title": "VPN Technologies",
+            "details": "Implement and manage various VPN technologies, including DMVPN and MPLS, to secure site-to-site communications"
+          },
+          {
+            "title": "Infrastructure Security",
+            "details": "Security measures for enterprise networks, utilizing AAA protocols, ACLs, and CoPP to safeguard network devices"
+          },
+          {
+            "title": "Infrastructure Services",
+            "details": "Essential services like DHCP, SNMP, and IP SLA that enhance network performance and monitoring capabilities"
+          },
+          {
+            "title": "Infrastructure Automation",
+            "details": "Automation techniques and tools to streamline network management and improve operational efficiency"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Engineer",
+          "Senior Network Engineer",
+          "Network Architect",
+          "Infrastructure Engineer",
+          "Network Automation Engineer",
+          "Solutions Architect",
+          "Data Center Engineer",
+          "NOC Engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Routers",
+            "details": "2811, 2821, 2901, 2911 series"
+          },
+          {
+            "title": "Switches",
+            "details": "2960, 3750G, 3850 series"
+          },
+          {
+            "title": "Wireless Access Point",
+            "details": "1852I-D-K9 series"
+          },
+          {
+            "title": "GNS3 Simulator",
+            "details": null
+          },
+          {
+            "title": "EVEng",
+            "details": null
+          },
+          {
+            "title": "Wireshark",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of dynamic instructor-led training",
+      "140+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP ENARSI lab manual & guide (70+ labs & superlabs included)",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP ENARSI resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 24115,
+      "originalAmount": 48570,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Individuals pursuing their CCNP Enterprise",
+      "Learners looking to enhance skills in routing, VPNs, and troubleshooting",
+      "CCIE aspirants building a strong foundation in advanced enterprise routing",
+      "CCNP ENCOR learners who want a popular concentration exam after the 350-401 core",
+      "Security-focused professionals integrating secure routing and access control",
+      "Individuals who want to handle multi-location enterprise WANs",
+      "Aspirants for senior roles -- like Senior Engineer or Network Architect"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "sd-wan-basics-to-advanced-mastery",
+    "shortCode": "SD-WAN",
+    "title": "SD-WAN: Basics to Advanced Mastery",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "CCNA level of networking knowledge",
+      "Familiarity with BGP, OSPF, and MPLS",
+      "Understanding of VPNs & basic security",
+      "Basic knowledge of WAN technologies"
+    ],
+    "includedCourses": [],
+    "description": "At Techboxx, we understand that mastering SD-WAN is more than just learning a technology; it's about transforming your career and empowering you to lead in the evolving world of networking. Our SD-WAN: Basics to Advanced Mastery course is meticulously crafted to take you from the basics to advanced concepts, ensuring you gain a comprehensive understanding of SD-WAN architecture, deployment strategies, and management techniques. Through engaging lessons, hands-on labs, and real-world scenarios, you'll develop the skills to design, deploy, and manage secure, scalable SD-WAN solutions with confidence. Whether you're new to SD-WAN or looking to enhance your expertise, Techboxx is here to guide you every step of the way. Let's go beyond learning: let's redefine what's possible with SD-WAN.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Here's an overview:",
+        "coreConcepts": [
+          {
+            "title": "SD-WAN Architecture",
+            "details": "Orchestration, Management, Control, and Data planes"
+          },
+          {
+            "title": "Cisco SD-WAN Edge Platforms",
+            "details": "Explore SD-WAN Edge capabilities and features"
+          },
+          {
+            "title": "Cisco SD-WAN Cloud OnRamp",
+            "details": "Integrating SD-WAN with cloud services: SaaS, IaaS, and more"
+          },
+          {
+            "title": "Controller Deployment",
+            "details": "Deploy SD-WAN controllers in both cloud and on-premises environments"
+          },
+          {
+            "title": "WAN Edge Deployment",
+            "details": "Configuring and deploying WAN Edge devices in various environments"
+          },
+          {
+            "title": "Cisco SD-WAN Data Plane",
+            "details": "Managing circuit termination, TLOC extension, and connectivity"
+          },
+          {
+            "title": "Overlay Management Protocol (OMP)",
+            "details": "Key concepts in OMP, including route management and IPsec"
+          },
+          {
+            "title": "Configuration Templates",
+            "details": "Efficiently create and manage device and configuration templates"
+          },
+          {
+            "title": "SD-WAN Policies",
+            "details": "Configure control and data policies, segmentation, and routing"
+          },
+          {
+            "title": "Security Features in SD-WAN",
+            "details": "Implement security features like firewalls, URL filtering, and cloud integration"
+          },
+          {
+            "title": "Quality of Service (QoS)",
+            "details": "Optimize traffic with scheduling, queuing, and QoS settings"
+          },
+          {
+            "title": "Management and Monitoring",
+            "details": "Manage SD-WAN through vManage, including monitoring and reporting"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network Design & Deployment Engineer",
+          "SD-WAN Architect",
+          "Network SD-WAN Engineer",
+          "SD-WAN Specialist",
+          "Network Solutions Architect",
+          "Network Security Engineer (SD-WAN focus)",
+          "SD-WAN Consultant",
+          "Network Data Engineer",
+          "Technical Manager"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Physical Devices",
+        "items": [
+          {
+            "title": "Cisco SD-WAN Edge Routers",
+            "details": null
+          },
+          {
+            "title": "Cisco Integrated Services Routers",
+            "details": null
+          },
+          {
+            "title": "Cisco Catalyst Switches",
+            "details": null
+          }
+        ]
+      },
+      {
+        "title": "Virtual Devices",
+        "items": [
+          {
+            "title": "Cisco SD-WAN vManage",
+            "details": null
+          },
+          {
+            "title": "Cisco SD-WAN vBond",
+            "details": null
+          },
+          {
+            "title": "Cisco SD-WAN vSmart",
+            "details": null
+          },
+          {
+            "title": "Cisco Cloud OnRamp (Virtual Appliances)",
+            "details": null
+          },
+          {
+            "title": "Cisco vEdge Routers (Virtualized SD-WAN Edge Routers)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of live instructor-led training",
+      "80+ hours of hands-on lab practice, modelled on real-world network scenarios",
+      "SD-WAN: Basics to Advanced Mastery lab manual & guide",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Round-the-clock support to answer your queries and resolve issues",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP SD-WAN resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "1.5 months",
+        "sessionHours": "2 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "3 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "live instructor-led"
+      },
+      {
+        "mode": "Offline",
+        "details": "live instructor-led"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 28000,
+      "originalAmount": 45700,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Individuals pursuing certifications like CCNA, CCNP, or CCIE who want to expand their expertise in SD-WAN",
+      "Anyone in the IT field looking to specialize in networking technologies, particularly in areas involving WAN optimization, security, and cloud integration",
+      "Network engineers seeking to deepen their knowledge of SD-WAN deployment and management",
+      "Businesses looking to upskill their teams in SD-WAN to improve network efficiency and security",
+      "Anyone interested in learning how to design, configure, and manage SD-WAN solutions from beginner to advanced levels"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "ccnp-300-420-ensld",
+    "shortCode": "ENSLD",
+    "title": "CCNP 300-420 ENSLD (Designing Cisco Enterprise Networks)",
+    "subtitle": null,
+    "domain": "Networking",
+    "duration": null,
+    "location": null,
+    "prerequisites": ["CCNA or equivalent level of networking knowledge is required."],
+    "includedCourses": [],
+    "description": "With technologies like SD-WAN, IoT, and cloud reshaping how networks operate, the CCNP 300-420 ENSLD course teaches you to design for modern needs. You'll learn how to integrate new technologies into traditional architectures, creating flexible and scalable solutions that meet the demands of today's enterprises. This course, combined with other modules, positions you for success by opening the door to advanced roles like Network Architect, Senior Network Engineer, and more.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  The following highlights the topics in this course:",
+        "coreConcepts": [
+          {
+            "title": "EIGRP, OSPF, IS-IS, and BGP Routing Designs",
+            "details": "Scalable and resilient designs for large-scale enterprise networks"
+          },
+          {
+            "title": "Enterprise Campus LAN Design",
+            "details": "VLAN designs, access layers, and routing strategies for enterprise campus networks"
+          },
+          {
+            "title": "Layer 2 and Layer 3 Campus Design",
+            "details": "VLANs, trunking, spanning tree protocols, and Layer 2 security techniques. Covers benefits of routing at the access layer, convergence, and summarization"
+          },
+          {
+            "title": "Cisco SD-Access Architecture",
+            "details": "Components, benefits, and design of Cisco's Software-Defined Access"
+          },
+          {
+            "title": "Service Provider and Enterprise VPN Designs",
+            "details": "MPLS VPN and WAN connectivity designs using routing protocols. Designs for GRE, IPsec, DMVPN, & more"
+          },
+          {
+            "title": "WAN Resiliency",
+            "details": "Resilient WAN design options and techniques like MPLS and traffic engineering"
+          },
+          {
+            "title": "Cisco SD-WAN Architecture and Deployment",
+            "details": "SD-WAN components, cloud, and service provider deployment models"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Network design engineer",
+          "Enterprise network architect",
+          "Solutions architect",
+          "Pre-sales network consultant",
+          "Infrastructure design specialist",
+          "Network planning engineer",
+          "Technical design engineer",
+          "Senior network engineer"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "GNS3 Simulator",
+            "details": null
+          },
+          {
+            "title": "EVE-NG",
+            "details": null
+          },
+          {
+            "title": "Wireshark",
+            "details": null
+          },
+          {
+            "title": "vManage, vBond, vSmart (for SD-WAN architecture testing)",
+            "details": null
+          },
+          {
+            "title": "IOSv and IOSvL2 for layer 3 and layer 2 testing",
+            "details": null
+          },
+          {
+            "title": "CSR1000v for routing",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of dynamic instructor-led training",
+      "120+ hours in hands-on labs, modelled on real-world network scenarios",
+      "CCNP ENSLD lab manual & guide",
+      "Industry-expert trainers and professionals, with 15+ years of global experience",
+      "Personalized mentorship and career guidance",
+      "Both real-world and certification-focused preparation, including mock tests",
+      "Access to Techboxx's learning community and CCNP ENSLD resources",
+      "Course completion certificate"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both options available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both options available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 20105,
+      "originalAmount": 40775,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Individuals pursuing their CCNP Enterprise",
+      "CCIE aspirants building a strong foundation in advanced enterprise routing",
+      "CCNP ENCOR learners who want a popular concentration exam after the 350-401 core",
+      "Aspirants for senior roles -- like Design Engineer or Network Architect",
+      "Anyone who wants to enhance their knowledge of advanced network design, including BGP, OSPF, EIGRP, and SD-Access",
+      "IT professionals managing complex networks, looking to upgrade their skills in modern network design technologies such as SD-WAN, MPLS, and VPNs"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "cehv13-with-ai",
+    "shortCode": "CEH-AI",
+    "title": "CEHv13 with AI (Certified Ethical Hacker + Artificial Intelligence)",
+    "subtitle": null,
+    "domain": "Cybersecurity",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "Basic knowledge of networking and operating systems",
+      "Familiarity with Linux and command-line tools is recommended",
+      "No prior cybersecurity experience required, but helpful"
+    ],
+    "includedCourses": [],
+    "description": "CEH v13 is one of the most recognized certifications in ethical hacking. With added modules on AI-driven security and threat detection, this course trains you to think like a hacker and defend against complex cyberattacks. You'll gain deep insights into reconnaissance, system hacking, web application attacks, and how AI is transforming the cybersecurity landscape. This course prepares you for real-world penetration testing roles and helps you stay ahead in the evolving field of cyber offense and defense.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Key topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Information Security & Ethical Hacking Overview",
+            "details": "Threat landscapes, attack vectors, and the role of an ethical hacker"
+          },
+          {
+            "title": "Reconnaissance & Footprinting",
+            "details": "Techniques for passive and active intelligence gathering"
+          },
+          {
+            "title": "Scanning & Enumeration",
+            "details": "Network scanning tools, banner grabbing, and vulnerability identification"
+          },
+          {
+            "title": "System Hacking & Malware Threats",
+            "details": "Password cracking, privilege escalation, and backdoors"
+          },
+          {
+            "title": "Web Application Hacking",
+            "details": "SQLi, XSS, CSRF, file inclusion, and authentication bypass"
+          },
+          {
+            "title": "Wireless Network Attacks",
+            "details": "Wi-Fi hacking, rogue APs, and wireless sniffing"
+          },
+          {
+            "title": "Social Engineering & Insider Threats",
+            "details": "Phishing, baiting, and human-based attack techniques"
+          },
+          {
+            "title": "AI in Cybersecurity",
+            "details": "How AI is used in threat detection, behavioral analysis, and automated response"
+          },
+          {
+            "title": "IDS/IPS Evasion, Honeypots & Firewalls",
+            "details": "Bypass techniques and intrusion evasion"
+          },
+          {
+            "title": "Cloud Security & IoT Hacking",
+            "details": "Modern environments like AWS, Azure, and IoT frameworks"
+          },
+          {
+            "title": "Report Writing & Remediation",
+            "details": "Impactful assessment reports and mitigation strategies"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Ethical Hacker",
+          "Penetration Tester",
+          "Cybersecurity Analyst",
+          "Red Team Member",
+          "SOC Analyst -- Threat Hunter",
+          "Security Consultant",
+          "Application Security Tester",
+          "AI-Enhanced Threat Analyst"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Kali Linux, Metasploit, Nmap, Burp Suite",
+            "details": null
+          },
+          {
+            "title": "Wireshark, Nikto, OWASP ZAP",
+            "details": null
+          },
+          {
+            "title": "AI-enabled SIEM tools like Splunk with ML add-ons",
+            "details": null
+          },
+          {
+            "title": "ChatGPT/AI prompt engineering for red teaming",
+            "details": null
+          },
+          {
+            "title": "Webgoat, DVWA, Metasploitable VMs",
+            "details": null
+          },
+          {
+            "title": "Cloud-based labs via EC-Council iLabs & EVE-NG",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "70+ hours of instructor-led training",
+      "120+ lab exercises based on real-world attack scenarios",
+      "EC-Council CEH v13 lab manual and exam blueprint coverage",
+      "AI cybersecurity module included (with practical exercises)",
+      "Training by certified ethical hackers and red team professionals",
+      "Resume and LinkedIn profile optimization for ethical hacking roles",
+      "Mock tests, exam prep questions, and career mentorship",
+      "Techboxx CEH community access and certification of completion"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4-5 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 28110,
+      "originalAmount": 59290,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Students and jobseekers entering cybersecurity or red teaming",
+      "Security enthusiasts pursuing CEH, OSCP, or penetration testing roles",
+      "System/network administrators transitioning to ethical hacking",
+      "IT professionals aiming for EC-Council CEH v13 certification",
+      "AI and data science professionals adding cyber defense capabilities",
+      "Cybersecurity professionals interested in AI-driven threat detection",
+      "Red and blue team aspirants preparing for real-world cyber threats"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "comptia-security-plus",
+    "shortCode": "SECURITY+",
+    "title": "CompTIA Security+",
+    "subtitle": null,
+    "domain": "Cybersecurity",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "Basic understanding of networking, hardware, and software",
+      "Prior CompTIA Network+ or CCNA or equivalent knowledge is helpful",
+      "No cybersecurity experience required"
+    ],
+    "includedCourses": [],
+    "description": "CompTIA Security+ is a globally recognized foundational cybersecurity certification, ideal for individuals beginning a career in IT security. This course equips you with essential knowledge and hands-on skills required to secure networks, identify threats, manage risks, and respond to incidents. With a strong emphasis on practical security problem-solving, Security+ helps you build a solid baseline for advanced certifications and roles in cybersecurity operations, governance, and compliance.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Key topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Security Fundamentals",
+            "details": "Core concepts like CIA triad, threat actors, and types of attacks"
+          },
+          {
+            "title": "Risk Management & Compliance",
+            "details": "Risk mitigation strategies, governance, and compliance frameworks"
+          },
+          {
+            "title": "Identity & Access Management",
+            "details": "AAA protocols, multi-factor authentication, and directory services"
+          },
+          {
+            "title": "Network Security",
+            "details": "Secure network architecture, implement secure protocols, and configure firewalls"
+          },
+          {
+            "title": "Cryptography & PKI",
+            "details": "Encryption types, key management, and certificate-based security"
+          },
+          {
+            "title": "Security Operations",
+            "details": "Monitoring, incident response, disaster recovery, and logging"
+          },
+          {
+            "title": "Application, Host & Cloud Security",
+            "details": "Security controls for software, endpoints, containers, and cloud platforms"
+          },
+          {
+            "title": "Social Engineering & Physical Security",
+            "details": "Psychological attacks and physical breaches"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "Security Operations Center (SOC) Analyst",
+          "Information Security Analyst",
+          "IT Support -- Security Focus",
+          "Cybersecurity Technician",
+          "Network Security Specialist",
+          "Systems Administrator",
+          "Compliance Analyst"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "Virtual Machines (Windows/Linux)",
+            "details": null
+          },
+          {
+            "title": "Wireshark for network analysis",
+            "details": null
+          },
+          {
+            "title": "Security Onion / ELK for log monitoring",
+            "details": null
+          },
+          {
+            "title": "OpenVAS / Nessus for vulnerability scanning",
+            "details": null
+          },
+          {
+            "title": "Identity management platforms (FreeIPA / Azure AD demo)",
+            "details": null
+          },
+          {
+            "title": "CompTIA Labs (browser-based simulation)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "50+ hours of instructor-led training",
+      "80+ labs and simulation-based practice",
+      "Full coverage of the CompTIA SY0-701 exam objectives",
+      "Hands-on exposure to industry-grade tools",
+      "Training by certified cybersecurity professionals with real world experience",
+      "Resume building and LinkedIn optimization",
+      "Mock interviews for job readiness",
+      "Guided mentorship for career planning",
+      "Techboxx Security+ certification of completion"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "1.5 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "1.5 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": "Fast track",
+        "duration": "15 days",
+        "sessionHours": "4-5 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "both available"
+      },
+      {
+        "mode": "Offline",
+        "details": "both available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 13140,
+      "originalAmount": 39995,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Beginners entering the field of cybersecurity",
+      "Students preparing for entry-level security certifications",
+      "IT support staff expanding into cybersecurity",
+      "Network/system admins learning to secure environments",
+      "Job seekers aiming for SOC, helpdesk, or GRC roles"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "ccna-cyberops",
+    "shortCode": "CYBEROPS",
+    "title": "CCNA CyberOps",
+    "subtitle": null,
+    "domain": "Cybersecurity",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "Basic understanding of networking (CCNA-level knowledge recommended)",
+      "No prior cybersecurity experience needed"
+    ],
+    "includedCourses": [],
+    "description": "In today's threat-heavy digital landscape, organizations need skilled defenders more than ever. The CCNA CyberOps course prepares you to operate efficiently as a security analyst in a Security Operations Center (SOC). It equips you with the core knowledge of security concepts, monitoring, host-based and network analysis, and incident response. With this certification, you'll be ready to launch a cybersecurity career, take on SOC roles, and strengthen your expertise in defending enterprise environments.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Key topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Security Concepts",
+            "details": "Basic principles like CIA triad, threat actors, attack types, and risk management"
+          },
+          {
+            "title": "Security Monitoring",
+            "details": "How to monitor network traffic, analyze logs, and identify signs of malicious activity using SIEM tools"
+          },
+          {
+            "title": "Host-Based Analysis",
+            "details": "Endpoint security, operating system logs, malware behavior, and threat detection techniques"
+          },
+          {
+            "title": "Network Intrusion Analysis",
+            "details": "Analyzing packet captures and flow data to detect threats using tools like Wireshark"
+          },
+          {
+            "title": "Security Policies & Procedures",
+            "details": "Foundations of incident response, forensics basics, compliance, and handling security events"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "SOC Analyst -- Level 1",
+          "Cybersecurity Analyst",
+          "Incident Response Analyst",
+          "Threat Intelligence Analyst",
+          "Network Security Analyst",
+          "Information Security Associate",
+          "IT Security Support Specialist",
+          "Security Monitoring Analyst"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "SIEM Tools (e.g., Splunk, OSSIM)",
+            "details": null
+          },
+          {
+            "title": "Wireshark (for packet analysis)",
+            "details": null
+          },
+          {
+            "title": "Linux & Windows VMs (for log analysis and malware behavior testing)",
+            "details": null
+          },
+          {
+            "title": "Security Onion / ELK Stack (for SOC-style monitoring)",
+            "details": null
+          },
+          {
+            "title": "GNS3 or EVE-NG (for network simulation)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "60+ hours of instructor-led, hands-on training",
+      "80+ lab exercises modeled on real-world SOC scenarios",
+      "Access to full CyberOps lab manual and practice environments",
+      "Training by expert cybersecurity professionals with real SOC experience",
+      "Guidance on building your resume and preparing for SOC analyst interviews",
+      "Certification-focused training with mock tests and question banks",
+      "Membership in Techboxx's CyberOps learning community",
+      "Course completion certificate and career mentoring"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 24441,
+      "originalAmount": 48570,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Beginners looking to start a career in cybersecurity",
+      "Graduates and jobseekers targeting SOC Analyst or Cybersecurity Analyst roles",
+      "IT professionals transitioning into the security domain",
+      "CCNA holders who want to explore the defensive side of networking",
+      "Anyone aiming for entry-level cybersecurity certifications and roles"
+    ],
+    "popularity": null
+  },
+  {
+    "id": "comptia-cysa-plus",
+    "shortCode": "CYSA+",
+    "title": "CompTIA CySA+",
+    "subtitle": null,
+    "domain": "Cybersecurity",
+    "duration": null,
+    "location": null,
+    "prerequisites": [
+      "Basic knowledge of networking, security, and system administration",
+      "CCNA, CCNA CyberOps or CompTIA Security+ or equivalent experience is recommended, but not mandatory"
+    ],
+    "includedCourses": [],
+    "description": "As cyber threats evolve, so must the defenders. CompTIA CySA+ is a performance-based certification that focuses on applying behavioral analytics to networks and devices to prevent, detect, and combat cybersecurity threats. This course prepares you to take on intermediate-level roles in security analytics, incident response, and vulnerability management. CySA+ validates your ability to proactively defend and continuously improve the security of an enterprise network—making you a critical asset to any cybersecurity team.",
+    "whatYouLearn": [
+      {
+        "description": "What you will learn:  Key topics covered in this course:",
+        "coreConcepts": [
+          {
+            "title": "Threat and Vulnerability Management",
+            "details": "Identify and assess threats, analyze vulnerability scan results, and recommend remediation strategies"
+          },
+          {
+            "title": "Security Operations and Monitoring",
+            "details": "Perform log analysis, configure and monitor security tools, and detect anomalies using SIEM platforms"
+          },
+          {
+            "title": "Incident Response",
+            "details": "Understand incident response procedures, prepare and analyze incident reports, and support recovery processes"
+          },
+          {
+            "title": "Compliance and Assessment",
+            "details": "Implement and assess cybersecurity policies, risk management practices, and regulatory requirements"
+          },
+          {
+            "title": "Security Architecture and Tool Sets",
+            "details": "Secure applications and systems, implement controls, and apply defense-in-depth strategies"
+          }
+        ]
+      }
+    ],
+    "whatYouBecome": [
+      {
+        "description": "",
+        "jobTitles": [
+          "SOC analyst",
+          "Cybersecurity analyst",
+          "Threat intelligence analyst",
+          "Vulnerability assessment analyst",
+          "Incident response specialist",
+          "Blue team analyst",
+          "Security operations specialist",
+          "Compliance and risk analyst"
+        ]
+      }
+    ],
+    "labInfrastructure": [
+      {
+        "title": "Devices and Tools",
+        "items": [
+          {
+            "title": "SIEM Tools",
+            "details": "Splunk, OSSIM, Elastic Stack"
+          },
+          {
+            "title": "Nessus or OpenVAS (for vulnerability scanning)",
+            "details": null
+          },
+          {
+            "title": "Wireshark (for traffic capture and analysis)",
+            "details": null
+          },
+          {
+            "title": "Linux & Windows machines (for endpoint analysis and simulations)",
+            "details": null
+          },
+          {
+            "title": "SOAR and log aggregation tools (for automation and alert correlation)",
+            "details": null
+          },
+          {
+            "title": "Virtual environments (for real-world attack simulations and response)",
+            "details": null
+          }
+        ]
+      }
+    ],
+    "keyFeatures": [
+      "70+ hours of instructor-led training",
+      "100+ labs focused on defensive cybersecurity operations",
+      "Full access to CySA+ lab guides and simulated attack scenarios",
+      "Training by certified cybersecurity experts with real-world experience",
+      "Resume-building sessions and job interview coaching",
+      "Mock exams and question banks aligned with the CySA+ exam (CS0-003)",
+      "Access to Techboxx cybersecurity community for ongoing support",
+      "Course completion certificate and placement assistance"
+    ],
+    "deliveryOptions": [
+      {
+        "type": "Regular",
+        "days": "Mon-Fri",
+        "duration": "2 months",
+        "sessionHours": "1.5 hours per session"
+      },
+      {
+        "type": "Weekends",
+        "days": "Sat-Sun",
+        "duration": "2 months",
+        "sessionHours": "2.5 hours per session"
+      },
+      {
+        "type": "Bootcamp",
+        "days": null,
+        "duration": "15 days",
+        "sessionHours": "4-5 hours per session"
+      }
+    ],
+    "trainingModes": [
+      {
+        "mode": "Online",
+        "details": "Both available"
+      },
+      {
+        "mode": "Offline",
+        "details": "Both available"
+      }
+    ],
+    "trainingFee": {
+      "title": "Training Fee",
+      "discountedAmount": 32200,
+      "originalAmount": 69970,
+      "currency": "INR"
+    },
+    "whoIsThisCourseFor": [
+      "Professionals preparing for the CompTIA CySA+ certification",
+      "Graduates aiming for hands-on security analyst jobs",
+      "Those seeking job-ready skills in threat detection and response",
+      "IT professionals entering cybersecurity",
+      "Existing SOC analysts looking to validate and grow their skills",
+      "Security engineers or sysadmins transitioning into analysis and response roles"
+    ],
+    "popularity": null
+  }
+]

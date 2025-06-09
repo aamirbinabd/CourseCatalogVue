@@ -1,0 +1,492 @@
+<template>
+  <div class="relative bg-bg-white w-full pt-[65px] pb-[65px] overflow-hidden md:pt-[0]">
+    <div
+      class="hidden h2-ibm justify-between mx-auto max-w-[1215px] px-[18px] pt-[65px] pb-[27px] border-b border-dull-grey md:pt-[7px] md:pb-[7px] md:mb-[27px] md:flex"
+    >
+      Catalog Menu
+      <span>
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 20.5L10.575 19.1L16.175 13.5H4V11.5H16.175L10.575 5.9L12 4.5L20 12.5L12 20.5Z"
+            fill="#1D1A3F"
+          />
+        </svg>
+      </span>
+    </div>
+    <div class="px-[18px]">
+      <div class="flex flex-col mx-auto container max-w-[1215px]">
+        <div class="grid grid-cols-[1fr,2.7fr] gap-[20px] md:grid-cols-[1fr]">
+          <!-- Sidebar -->
+          <aside class="mr-[20px] text-dull-grey md:hidden">
+            <h3 class="h2-ibm mb-[20px] text-tx-dark">Domains</h3>
+            <div>
+              <div
+                class="FilterLink h6-inter-med cursor-pointer mb-[20px]"
+                v-for="(domain, index) in domains"
+                :key="`domain_${index}`"
+                :class="{ 'text-tx-blue Selected': currentDomain === domain }"
+                @click="selectDomain(domain)"
+              >
+                {{ domain.domain }}
+              </div>
+            </div>
+          </aside>
+          <!-- Course Card Section -->
+          <main class="w-full h-full">
+            <div class="mb-[32px] flex flex-row justify-between gap-[15px]">
+              <input
+                type="text"
+                class="Gradient h4-ibm-med px-[15px] py-[9px] w-full rounded-[7px] border border-solid border-dull-white"
+                placeholder="Search All Courses"
+                v-model="searchTerm"
+                @input="searchCourses"
+              />
+              <DropdownSelect v-model="sortBy" :options="sortOptions" />
+            </div>
+            <!-- Header Card -->
+            <div v-if="searchTerm" class="mb-[32px]">
+              <h1>Search Results...</h1>
+            </div>
+            <HeaderCard
+              v-else
+              v-if="currentDomain"
+              class="mb-[55px]"
+              :titleValue="currentDomain.domain"
+              :subtitleValue="currentDomain.domain"
+              :descriptionValue="currentDomain.description"
+            />
+            <div id="grid" class="GridElement flex mb-[70px] w-full">
+              <CourseCard
+                v-for="course in paginatedCourses"
+                :key="`${course.domain}_${course.title}`"
+                :course="course"
+                :showCourseDetails="showCourseDetails"
+              />
+            </div>
+            <Pagination
+              class="mb-[25px]"
+              :total-pages="totalPages"
+              @page-changed="goToPage"
+              :currentPage="currentPage"
+            />
+          </main>
+        </div>
+        <!-- Course Navigation-->
+        <div class="Gradient h2-ibm flex justify-between w-full p-[12px_20px] rounded-[7px]">
+          <button
+            class="flex items-center gap-[10px]"
+            @click="navigateDomains(-1)"
+            :class="{
+              'opacity-50': domains.indexOf(currentDomain) === 0,
+              'cursor-not-allowed': domains.indexOf(currentDomain) === 0,
+              'text-tx-blue': domains.indexOf(currentDomain) !== 0
+            }"
+          >
+            <span
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="m7.85 13l2.85 2.85q.3.3.288.7t-.288.7q-.3.3-.712.313t-.713-.288L4.7 12.7q-.3-.3-.3-.7t.3-.7l4.575-4.575q.3-.3.713-.287t.712.312q.275.3.288.7t-.288.7L7.85 11H19q.425 0 .713.288T20 12q0 .425-.288.713T19 13H7.85Z"
+                />
+              </svg>
+            </span>
+            <span>{{ getDomainName(domains.indexOf(currentDomain) - 1) }}</span>
+          </button>
+          <button
+            class="flex items-center gap-[10px]"
+            @click="navigateDomains(1)"
+            :class="{
+              'opacity-50': domains.indexOf(currentDomain) === domains.length - 1,
+              'cursor-not-allowed': domains.indexOf(currentDomain) === domains.length - 1,
+              'text-tx-blue': domains.indexOf(currentDomain) !== domains.length - 1
+            }"
+          >
+            <span>{{ getDomainName(domains.indexOf(currentDomain) + 1) }}</span>
+            <span
+              ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M16.15 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.313t.712.288L19.3 11.3q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7L16.15 13Z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <CourseDetailsModal :selectedCourse="selectedCourse" @hideCourseDetails="hideCourseDetails" />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, computed, watch, nextTick } from 'vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Fuse from 'fuse.js'
+import courses from './data/courses.js'
+import HeaderCard from './components/HeaderCard.vue'
+import CourseCard from './components/CourseCard.vue'
+import DropdownSelect from './components/DropdownSelect.vue'
+import Masonry from 'masonry-layout'
+import CourseDetailsModal from './components/CourseDetailsModal.vue'
+
+// ********** COMPONENTS **********
+const MainContent = { template: '<div><slot></slot></div>' }
+
+// ********** CONSTANTS **********
+const ROUTE_NAMES = { SEARCH: 'Search', DOMAIN: 'Domain' }
+
+const sortOptions = ref([
+  { label: 'A-Z', value: 'az' },
+  { label: 'Z-A', value: 'za' },
+  { label: 'Duration (Ascending)', value: 'duration-asc' },
+  { label: 'Duration (Descending)', value: 'duration-desc' },
+  { label: 'Course Type', value: 'type' },
+  { label: 'Most Popular', value: 'most-popular' }
+])
+
+const sortingStrategies = {
+  az: (a, b) => a.title.localeCompare(b.title),
+  za: (a, b) => b.title.localeCompare(a.title),
+  'duration-asc': (a, b) => parseInt(a.duration) - parseInt(b.duration),
+  'duration-desc': (a, b) => parseInt(b.duration) - parseInt(a.duration),
+  type: (a, b) => a.type.localeCompare(b.type),
+  'most-popular': (a, b) => b.popularity - a.popularity
+}
+
+// ********** DATA **********
+const domains = ref(courses)
+const currentDomain = ref(domains.value[0])
+const lastSelectedDomain = ref(domains.value[0])
+const searchTerm = ref('')
+const lastSearchTerm = ref('')
+const sortBy = ref('az')
+const selectedCourse = ref(null)
+const currentPage = ref(1)
+const coursesPerPage = ref(4)
+const filteredCourses = ref([])
+const fuseOptions = { keys: ['title', 'description'], includeScore: true }
+const router = ref(null)
+const fuse = ref(new Fuse([], fuseOptions))
+const isLoading = ref(false)
+const error = ref(null)
+const debounceTimer = ref(null)
+
+// ********** HELPER FUNCTIONS **********
+const sortItems = (items, by) => {
+  return items.slice().sort(sortingStrategies[by])
+}
+
+// ********** METHODS **********
+const selectDomain = (domain) => {
+  lastSelectedDomain.value = domain
+  currentDomain.value = domain
+  searchTerm.value = ''
+  updateFilteredCourses()
+  nextTick(() => {
+    currentPage.value = 1
+  })
+}
+
+const filterCourses = () => {
+  if (searchTerm.value === '') {
+    return currentDomain.value.courses
+  } else {
+    fuse.value.setCollection(domains.value.flatMap((domain) => domain.courses))
+    return fuse.value.search(searchTerm.value).map((result) => result.item)
+  }
+}
+
+const updateFilteredCourses = () => {
+  filteredCourses.value = filterCourses()
+  sortCourses()
+}
+
+const showCourseDetails = (course) => {
+  selectedCourse.value = course
+}
+
+const hideCourseDetails = () => {
+  selectedCourse.value = null
+}
+
+const searchCourses = () => {
+  if (searchTerm.value === '') {
+    currentDomain.value = lastSelectedDomain.value
+  } else {
+    currentDomain.value = null
+  }
+  updateFilteredCourses()
+}
+
+const sortCourses = () => {
+  filteredCourses.value = sortItems(filteredCourses.value, sortBy.value)
+  currentPage.value = 1
+}
+
+const goToPage = (page) => {
+  currentPage.value = page
+}
+
+const navigateDomains = (direction) => {
+  const currentIndex = domains.value.indexOf(currentDomain.value)
+  const nextIndex = currentIndex + direction
+  if (nextIndex >= 0 && nextIndex < domains.value.length) {
+    selectDomain(domains.value[nextIndex])
+  }
+}
+
+const getDomainName = (index) => {
+  return index >= 0 && index < domains.value.length ? domains.value[index].domain : ''
+}
+
+const updateQueryParams = (params) => {
+  searchTerm.value = params.searchTerm || ''
+  sortBy.value = params.sortBy || 'az'
+}
+
+const handleSearchRoute = () => {
+  currentDomain.value = null
+  lastSearchTerm.value = searchTerm.value
+  searchCourses()
+}
+
+const handleDomainRoute = (params) => {
+  const domainObj = domains.value.find((d) => d.domain === params.domain)
+  if (domainObj) {
+    selectDomain(domainObj)
+    if (params.sortBy) {
+      sortBy.value = params.sortBy
+    }
+    if (params.course) {
+      const courseObj = domainObj.courses.find((c) => c.title === params.course)
+      if (courseObj) {
+        showCourseDetails(courseObj)
+      }
+    }
+  }
+}
+
+const updateRoute = (to, from) => {
+  if (to) {
+    updateQueryParams(to.query)
+    if (to.name === ROUTE_NAMES.SEARCH) {
+      handleSearchRoute()
+    } else if (to.name === ROUTE_NAMES.DOMAIN) {
+      handleDomainRoute(to.params)
+    }
+  }
+}
+
+// ********** COMPUTED PROPERTIES **********
+const updateTitle = computed(() =>
+  searchTerm.value !== ''
+    ? 'Search results...'
+    : lastSelectedDomain.value
+      ? lastSelectedDomain.value.domain
+      : 'Loading...'
+)
+
+const totalPages = computed(() => Math.ceil(filteredCourses.value.length / coursesPerPage.value))
+
+const paginatedCourses = computed(() => {
+  const start = (currentPage.value - 1) * coursesPerPage.value
+  return filteredCourses.value.slice(start, start + coursesPerPage.value)
+})
+
+// ********** ROUTER, WATCHERS & LIFECYCLE HOOKS **********
+
+let msnry = null
+
+onMounted(async () => {
+  isLoading.value = true
+  error.value = null
+
+  if (typeof window !== 'undefined') {
+    router.value = createRouter({
+      history: createWebHashHistory(),
+      routes: [
+        {
+          path: '/search',
+          name: ROUTE_NAMES.SEARCH,
+          component: MainContent,
+          beforeEnter: updateRoute // Here
+        },
+        {
+          path: '/:domain/:course?',
+          name: ROUTE_NAMES.DOMAIN,
+          component: MainContent,
+          beforeEnter: updateRoute // Here
+        },
+        {
+          path: '/:catchAll(.*)',
+          redirect: () => {
+            return { name: ROUTE_NAMES.DOMAIN, params: { domain: domains.value[0].domain } }
+          }
+        }
+      ]
+    })
+
+    // Initialize Masonry here
+    const grid = document.getElementById('grid')
+    if (grid) {
+      msnry = new Masonry(grid, {
+        itemSelector: '.CourseCard',
+        columnWidth: '.CourseCard',
+        percentPosition: true,
+        gutter: 24,
+        resize: true,
+        stagger: 30,
+        animationOptions: { duration: 750, easing: 'ease', queue: false }
+      })
+    }
+
+    try {
+      await router.value.push({ path: window.location.hash.slice(1) })
+      updateFilteredCourses()
+      if (router.value.currentRoute.value) {
+        updateRoute(router.value.currentRoute.value)
+      }
+    } catch (err) {
+      error.value = err.message
+    } finally {
+      isLoading.value = false
+    }
+  }
+})
+
+const debounce = (func, delay) => {
+  return function (...args) {
+    const context = this
+    clearTimeout(debounceTimer.value)
+    debounceTimer.value = setTimeout(() => func.apply(context, args), delay)
+  }
+}
+
+// Function to layout Masonry and update grid
+const layoutMasonryAndUpdateGrid = () => {
+  nextTick(() => {
+    if (msnry) {
+      msnry.reloadItems()
+      msnry.layout()
+    }
+  })
+}
+
+// Watch for changes in your courses data
+watch(() => filteredCourses.value, layoutMasonryAndUpdateGrid)
+
+// Watch for changes in pagination
+watch(currentPage, layoutMasonryAndUpdateGrid)
+
+watch(
+  [searchTerm, sortBy, selectedCourse, currentDomain],
+  debounce(() => {
+    if (router.value) {
+      const route =
+        currentDomain.value === null
+          ? {
+              name: ROUTE_NAMES.SEARCH,
+              query: { searchTerm: searchTerm.value, sortBy: sortBy.value }
+            }
+          : selectedCourse.value !== null
+            ? {
+                name: ROUTE_NAMES.DOMAIN,
+                params: { domain: currentDomain.value.domain, course: selectedCourse.value.title },
+                query: { sortBy: sortBy.value }
+              }
+            : {
+                name: ROUTE_NAMES.DOMAIN,
+                params: { domain: currentDomain.value.domain },
+                query: { sortBy: sortBy.value }
+              }
+      // Include the sortBy parameter in the URL if the currentDomain is not null
+      if (currentDomain.value !== null) {
+        route.query.sortBy = sortBy.value
+      }
+      router.value.push(route)
+      updateRoute(route)
+    }
+  }, 100)
+)
+</script>
+
+<style>
+.FilterLink {
+  transition: all 0.2s ease-in-out;
+}
+
+.FilterLink.Selected:before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-right: 7px;
+  margin-left: -7px;
+  background: var(--tx-blue);
+  margin-bottom: -2px;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.2s ease-in-out;
+  transition: transform 1s all ease-in-out;
+}
+
+.FilterLink.Selected:before {
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.Gradient {
+  background: var(--gradients-tab-gradient, linear-gradient(180deg, #ebebeb 0%, #dcdcdc 100%));
+}
+
+input:active {
+  box-shadow: 0 0 0 2px var(--tx-blue);
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px var(--tx-blue);
+  outline: none;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-up-enter,
+.slide-up-enter-from {
+  transform: translateY(100%);
+}
+
+.slide-up-enter-to {
+  transform: translateY(0);
+}
+
+.slide-up-leave-from {
+  transform: translateY(0);
+}
+
+.slide-up-leave-to {
+  transform: translateY(100%);
+}
+
+/* Fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
+</style>

@@ -1,36 +1,23 @@
 <template>
-  <div class="SolidCard p-[20px]">
+  <SolidCard class="p-[20px]">
     <h3 class="h2-inter mb-[12px] text-tx-dark">
-      {{ titleValue }}
+      {{ title }}
     </h3>
-    <p class="h4-inter text-dull-grey mb-[27px]">{{ courseCountValue }} Courses in Total</p>
-    <div class="max-w-[440px]">
-      <h3 class="h5-inter mb-[12px]">Introduction to {{ subtitleValue }}</h3>
-      <p class="text-tx-dark">{{ descriptionValue }}</p>
+    <div class="flex flex-row items-center gap-[7px] mb-[20px]">
+      <Icon icon="material-symbols:interests-outline" class="text-dull-grey" />
+      <p class="h5-inter text-dull-grey">{{ courseCount }} Courses & Programs</p>
     </div>
-  </div>
+    <div class="max-w-[440px]">
+      <h3 class="h5-inter mb-[12px]">Introduction to {{ subtitle }}</h3>
+      <p class="text-tx-dark">{{ description }}</p>
+    </div>
+  </SolidCard>
 </template>
 
-<script>
-export default {
-  name: 'HeaderCard',
-  props: {
-    titleValue: {
-      type: String,
-      required: true
-    },
-    courseCountValue: {
-      type: Number,
-      required: true
-    },
-    subtitleValue: {
-      type: String,
-      required: true
-    },
-    descriptionValue: {
-      type: String,
-      required: true
-    }
-  }
-}
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
+import SolidCard from './ui/SolidCard.vue'
+
+defineProps<{ title: string; courseCount: number; subtitle: string; description: string }>()
 </script>

@@ -42,8 +42,9 @@
   --tx-highlight-gradient: linear-gradient(180deg, #ff6633 0%, #3631ff 100%);
 
   /* Font styles */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 1rem;
   --user-font-scale: 1rem - 16px;
   font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
@@ -62,6 +63,9 @@
   box-sizing: border-box;
   margin: 0;
   scroll-behavior: smooth;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
   -webkit-appearance: none;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   text-rendering: optimizeLegibility !important;
@@ -94,26 +98,7 @@ body {
 
 .bg-white {
   background-color: var(--bg-white);
-  //width: calc(100% + 32px);
-}
-
-/* // Design System Styles */
-.ContainerSmall {
-  max-width: 925px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.ContainerMedium {
-  max-width: 1030px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.ContainerLarge {
-  max-width: 1215px;
-  margin: 0 auto;
-  width: 100%;
+  /* //width: calc(100% + 32px); */
 }
 
 /* // Cards */
@@ -139,7 +124,8 @@ body {
   --dot-color: var(--dull-white);
   --bg-color: var(--bg-white);
 
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       to right,
       transparent calc(var(--box-size) * var(--density)),
       var(--bg-color) calc(var(--box-size) * var(--density))
@@ -156,4 +142,9 @@ body {
   background-size: calc(var(--horizontal-spacing) * var(--density))
     calc(var(--vertical-spacing) * var(--density));
   background-color: var(--dot-color);
+}
+
+html,
+body {
+  scrollbar-gutter: stable !important;
 }

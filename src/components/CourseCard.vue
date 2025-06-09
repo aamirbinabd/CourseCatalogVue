@@ -1,67 +1,82 @@
 <template>
-  <div
-    class="CourseCard LightCard p-[20px] mb-[24px] max-w-[424px] w-full cursor-pointer ml:min-w-full"
-    @click="handleCourseDetails"
-  >
-    <div class="border-b border-solid border-light-grey mb-[15px]">
-      <div class="mb-[19px]">
-        <label
-          class="h5-inter text-white px-[7px] py-[4px] rounded-[5px]"
-          v-html="course.type"
-          :class="
-            course.type === 'Unified Course'
-              ? 'bg-tx-orange'
-              : course.type === 'Essential Course'
-              ? 'bg-[#328FC3]'
-              : course.type === 'Master Course'
-              ? 'bg-warning'
-              : course.type === 'Specialist Course'
-              ? 'bg-tx-dark'
-              : 'bg-tx-dark'
-          "
-        >
-        </label>
-      </div>
-      <h1 class="h3-inter mb-[22px]" v-html="course.title"></h1>
-      <p class="h3-ibm pb-[15px]">
-        Duration: <span class="text-tx-blue">{{ course.duration }}</span>
-      </p>
-    </div>
-    <p class="h3-ibm mb-[15px]">Included Courses & More:</p>
-    <ul class="h6-inter-med flex flex-wrap gap-[8px] mb-[15px]">
-      <li
-        class="w-max px-[12px] py-[6px] rounded-[35px] border border-solid border-tx-dark"
-        v-for="(course, index) in course.includedCourses"
-        :key="index"
-      >
-        {{ course }}
-      </li>
-    </ul>
+  <LightCard class="w-full max-w-[424px] cursor-pointer ml:min-w-full">
+    <ContentCard :title="course.title" :show-margin="hasIncludedCourses" @click="$emit('click')">
+      <!-- Badge goes in pre-title slot -->
+      <template #pre-title>
+        <CourseBadge :course="course" class="w-fit block mb-[15px]" />
+      </template>
 
-    <p class="text-tx-dark mb-[11px]" v-html="course.description"></p>
-    <button @click.stop="handleCourseDetails" class="h3-ibm text-tx-blue underline mt-[5px]">
-      Read More
-    </button>
-  </div>
+      <!-- Duration goes in post-title slot -->
+      <template #post-title>
+        <div class="flex flex-row gap-[15px] mt-[15px]">
+          <div v-for="(item, i) in infoItems" :key="i" class="flex flex-row items-center gap-[7px]">
+            <Icon :icon="item.icon" class="text-tx-dark" />
+            <p class="h3-ibm">{{ item.label }} {{ item.value }}</p>
+          </div>
+        </div>
+      </template>
+
+      <!-- Main content -->
+      <div v-if="hasIncludedCourses">
+        <div class="flex items-center gap-[7px] mb-[15px]">
+          <Icon icon="material-symbols:interests-outline" class="text-tx-dark" />
+          <p class="h3-ibm">Included Courses & More:</p>
+        </div>
+        <ul class="h6-inter-med flex flex-wrap gap-[8px] mb-[15px]">
+          <CourseListItem
+            v-for="(includedCourse, index) in course.includedCourses"
+            :key="index"
+            :text="includedCourse"
+          />
+        </ul>
+      </div>
+      <HyperLink
+        label="Read More"
+        href="#"
+        class="mt-[20px]"
+        variant="arrow-outward"
+        @click.stop="$emit('click')"
+      />
+    </ContentCard>
+  </LightCard>
 </template>
 
-<script>
-export default {
-  name: 'CourseCard',
-  props: {
-    course: {
-      type: Object,
-      required: true
-    },
-    showCourseDetails: {
-      type: Function,
-      required: true
-    }
+<script setup lang="ts">
+import { Icon } from '@iconify/vue'
+import { computed } from 'vue'
+
+import { Course } from '@/types'
+
+import ContentCard from './ContentCard.vue'
+import CourseBadge from './CourseBadge.vue'
+import CourseListItem from './CourseListItem.vue'
+import HyperLink from './ui/HyperLink.vue'
+import LightCard from './ui/LightCard.vue'
+
+const props = defineProps<{
+  course: Course
+}>()
+
+const hasIncludedCourses = computed(
+  () => props.course.includedCourses && props.course.includedCourses.length > 0
+)
+
+const infoItems = computed(() => [
+  {
+    icon: 'material-symbols:signal-cellular-alt',
+    label: '',
+    value: props.course.level || 'level?'
   },
-  methods: {
-    handleCourseDetails() {
-      this.showCourseDetails(this.course)
-    }
+  {
+    icon: 'material-symbols:calendar-clock-outline',
+    label: '',
+    value:
+      props.course.deliveryOptions
+        .filter((option) => option.type !== 'Weekends')
+        .map((option) => option.duration)
+        .join(' - ') || 'duration?'
   }
-}
+])
+
+defineEmits<{ (e: 'click'): void }>()
 </script>
