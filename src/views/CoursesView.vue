@@ -1,4 +1,7 @@
 <template>
+  <div class="text-center text-tx-dark bg-red-400">
+    This is an early alpha demo. Work in progress.
+  </div>
   <div class="relative bg-bg-white w-full pt-[65px] pb-[65px] overflow-hidden md:pt-[0]">
     <div class="px-[18px]">
       <div class="flex flex-col mx-auto container max-w-[1215px]">
