@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": ">=18.0.0"
+    "node": "^20.11.1"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "npm run type-check && vite build",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx --fix --ignore-path .gitignore",
